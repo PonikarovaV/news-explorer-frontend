@@ -1,0 +1,21 @@
+.header__navigation_type_mobile {
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: #1A1B22;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .header__navigation_type_mobile {
+    padding: calc((100vw - 320px)/(767 - 320) * (40 - 16) + 16px);
+  }
+}
+
+@media (max-width: 319px) {
+  .header__navigation_type_mobile {
+    padding: 16px;
+  }
+}

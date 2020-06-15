@@ -1,0 +1,8 @@
+.page {
+  width: 100%;
+  margin: 0;
+}
+
+.page__header {
+  margin: 0 auto;
+}

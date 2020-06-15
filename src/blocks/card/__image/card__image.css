@@ -1,0 +1,10 @@
+.card__image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 68%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

@@ -1,0 +1,14 @@
+@import './_theme/_dark/header__navigation-section_theme_dark.css';
+
+.header__navigation-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .header__navigation-section {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}

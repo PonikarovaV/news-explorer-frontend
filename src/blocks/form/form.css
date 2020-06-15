@@ -1,0 +1,125 @@
+.form {
+  box-sizing: border-box;
+  padding: 34px 36px 28px;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+}
+
+.form__legend {
+  align-self: flex-start;
+  margin: 0 0 22px 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  color: #1A1B22;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.form__field {
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 31px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__field:last-of-type {
+  margin-bottom: 8px;
+}
+
+.form__label {
+  margin: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2F71E5;
+}
+
+.form__input {
+  box-sizing: border-box;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  background-color: unset;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+.form__input::placeholder {
+  margin: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0, 0, 0, .2);
+}
+
+.form__button {
+  padding-top: 21px;
+  padding-bottom: 19px;
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.form__button_active {
+  background-color: #2F71E5;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  color: #FFF;
+}
+
+.form__button_inactive {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}
+
+.form__redirect-text {
+  margin: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.form__redirect-link {
+  text-decoration: none;
+  color: #2F71E5;
+}
+
+.form__error {
+  position: absolute;
+  left: 0;
+  bottom: 13px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+}
+
+.form__error_type_server-error {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}

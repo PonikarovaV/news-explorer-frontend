@@ -1,0 +1,29 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.popup_invisible {
+  display: none;
+}
+
+.popup__content {
+  position: relative;
+}
+
+.popup__close-icon {
+  position: absolute;
+  top: -46px;
+  right: -46px;
+}
+
+.popup__close-icon:hover {
+  cursor: pointer;
+}

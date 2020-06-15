@@ -1,0 +1,29 @@
+.social {
+  height: 100%;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+}
+
+.social__item {
+  margin: 0 28px 0 0;
+}
+
+.social__item:last-child {
+  margin-right: 0;
+}
+
+.social__item_active {
+  border-bottom: 3px solid #FFF;
+}
+
+.social__link {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .social__item {
+    padding: 0;
+  }
+}

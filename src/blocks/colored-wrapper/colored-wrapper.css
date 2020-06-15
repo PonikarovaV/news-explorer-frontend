@@ -1,0 +1,15 @@
+.colored-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.colored-wrapper_type_header {
+  background-image: url('../../images/main-page/main-page-header-background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.colored-wrapper_type_news {
+  background-color: #F5F6F7;
+}

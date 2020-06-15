@@ -1,0 +1,121 @@
+@import '../../vendor/fonts.css';
+
+.text {
+  margin: 0;
+}
+
+.text_family_roboto {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.text_family_robotoslab {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.text_family_sourcesanspro {
+  font-family: 'Sourcesanspro', Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.text_family_inter {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.text_weight_normal {
+  font-weight: 400;
+}
+
+.text_weight_medium {
+  font-weight: 500;
+}
+
+.text_weight_bold {
+  font-weight: 900;
+}
+
+.text_theme_black {
+  color: #1A1B22;
+}
+
+.text_theme_white {
+  color: #FFF;
+}
+
+.text_theme_gray {
+  color: #B6BCBF;
+}
+
+.text_type_main-title {
+  font-size: 60px;
+  line-height: 64px;
+}
+
+.text_type_title {
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.text_type_small-title {
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.text_type_extralarge {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.text_type_large {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.text_type_medium {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .text_type_small-title {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (26 - 22) + 22px);
+    line-height: calc((100vw - 768px)/(1439 - 768) * (30 - 24) + 24px);
+  }
+
+  .text_type_main-title {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (60 - 36) + 36px);
+    line-height: calc((100vw - 768px)/(1439 - 768) * (64 - 40) + 40px);
+  }
+
+  .text_type_title {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (40 - 30) + 30px);
+    line-height:  calc((100vw - 768px)/(1439 - 768) * (46 - 34) + 34px);
+  }
+
+  .text_type_large {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (18 - 16) + 16px);
+  }
+}
+
+@media (max-width: 767px) {
+  .text_type_small-title {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .text_type_main-title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .text_type_title {
+    font-size: 30px;
+    line-height:  34px;
+  }
+
+  .text_type_large {
+    font-size: 16px;
+  }
+}

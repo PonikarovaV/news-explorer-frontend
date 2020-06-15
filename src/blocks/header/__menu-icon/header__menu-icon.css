@@ -1,0 +1,9 @@
+.header__menu-icon {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .header__menu-icon {
+    display: block;
+  }
+}

@@ -1,0 +1,28 @@
+.wrapper {
+  box-sizing: border-box;
+  max-width: 1440px;
+  padding-left: 104px;
+  padding-right: 104px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .wrapper {
+    padding-left: calc((100vw - 768px)/(1439 - 768) * (104 - 40) + 40px);
+    padding-right: calc((100vw - 768px)/(1439 - 768) * (104 - 40) + 40px);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .wrapper {
+    padding-left: calc((100vw - 320px)/(767 - 320) * (40 - 16) + 16px);
+    padding-right: calc((100vw - 320px)/(767 - 320) * (40 - 16) + 16px);
+  }
+}
+
+@media (max-width: 319px) {
+  .wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

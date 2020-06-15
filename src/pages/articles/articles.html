@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Ванда Поникарова">
+  <title>News Explorer</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="<%=require('../../images/icons/favicon.png')%>" />
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+</head>
+
+<body class="page">
+  <header class="header page__header">
+    <div class="wrapper header__navigation-section">
+      <a class="logo logo_theme_dark" href="./index.html">NewsExplorer</a>
+      <ul class="navigation header__navigation header__navigation_type_screen">
+        <li class="navigation__item navigation__item_place_header">
+          <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
+        </li>
+        <li class="navigation__item navigation__item_place_header navigation__item_active_dark">
+          <a class="navigation__link navigation__link_theme_dark" href="./articles.html">Сохраненные статьи</a>
+        </li>
+        <li class="navigation__item navigation__item_place_header">
+          <button class="button button_type_screen-main-action button_theme_border-dark">Грета&nbsp;
+            <img class="button__icon" src="<%=require('../../images/icons/logout-black.svg') %>" alt="Кнопка выхода из профиля">
+          </button>
+        </li>
+      </ul>
+      <img class="header__menu-icon" src="<%=require('../../images/icons/menu-icon.svg')%>" alt="Menu icon">
+    </div>
+    <hr class="content-separator">
+    <div class="wrapper info-block header__info-block">
+      <p class="info-block__description">Сохранённые статьи</p>
+      <h2 class="title title_theme_dark info-block__title">Грета, у вас 5 сохранённых статей</h2>
+      <p class="info-block__subtitle">По ключевым словам: <strong>Природа</strong>, <strong>Тайга</strong> и <b>2 другим</b></p>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="colored-wrapper colored-wrapper_type_news">
+      <div class="wrapper">
+        <section class="news main__news">
+          <section class="news__cards">
+            <section class="card">
+              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
+                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#fff"/>
+                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                </svg>
+              </div>
+              <article class="card__bottom">
+                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
+                <div class="card__main">
+                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
+                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                </div>
+                <address class="card__source">Лента.ру</address>
+              </article>
+            </section>
+
+            <section class="card">
+              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
+                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#fff"/>
+                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                </svg>
+              </div>
+              <article class="card__bottom">
+                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
+                <div class="card__main">
+                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
+                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                </div>
+                <address class="card__source">Лента.ру</address>
+              </article>
+            </section>
+
+            <section class="card">
+              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_03.jpg`) %>')">
+                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#fff"/>
+                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                </svg>
+              </div>
+              <article class="card__bottom">
+                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
+                <div class="card__main">
+                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Лесные огоньки: история одной фотографии</h2>
+                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
+                    из местных чудес природы.</p>
+                </div>
+                <address class="card__source">Медуза</address>
+              </article>
+            </section>
+
+              <section class="card">
+                <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
+                  <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#fff"/>
+                    <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                  </svg>
+                </div>
+                <article class="card__bottom">
+                    <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
+                  <div class="card__main">
+                    <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
+                    <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                  </div>
+                  <address class="card__source">Лента.ру</address>
+                </article>
+              </section>
+
+              <section class="card">
+                <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
+                  <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#fff"/>
+                    <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                  </svg>
+                </div>
+                <article class="card__bottom">
+                    <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
+                  <div class="card__main">
+                    <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
+                    <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                  </div>
+                  <address class="card__source">Лента.ру</address>
+                </article>
+              </section>
+
+          </section>
+          <button class="text text_family_roboto text_weight_medium text_theme_black text_type_large button button__text button_type_show-more">Показать еще</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrapper footer__content">
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <div class="footer__info">
+        <ul class="navigation footer__navigation">
+          <li class="navigation__item navigation__item_place_footer">
+            <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
+          </li>
+          <li class="navigation__item navigation__item_place_footer">
+            <a class="navigation__link navigation__link_theme_dark" href="#">Яндекс.Практикум</a>
+          </li>
+        </ul>
+        <ul class="social">
+          <li class="social__item">
+            <a class="social__link" href="#">
+              <img src="<%=require('../../images/social/github-icon.svg')%>" alt="GitHub Icon">
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__link" href="#">
+              <img src="<%=require('../../images/social/fb-icon.svg')%>" alt="FaceBook Icon">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+</html>
