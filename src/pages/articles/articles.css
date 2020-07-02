@@ -7,8 +7,10 @@
 @import '../../blocks/colored-wrapper/colored-wrapper.css';
 @import '../../blocks/wrapper/wrapper.css';
 @import '../../blocks/header/header.css';
-@import '../../blocks/logo/logo.css';
 @import '../../blocks/navigation/navigation.css';
+@import '../../blocks/mobile-menu/mobile-menu.css';
+@import '../../blocks/navigation/_place/_mobile-menu/navigation_place_mobile-menu.css';
+@import '../../blocks/logo/logo.css';
 @import '../../blocks/search/search.css';
 @import '../../blocks/button/button.css';
 @import '../../blocks/about/about.css';

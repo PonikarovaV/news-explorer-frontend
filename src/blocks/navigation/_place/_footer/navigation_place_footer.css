@@ -1,0 +1,12 @@
+.navigation_place_footer {
+  margin-right: 45px;
+  height: 100%;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .navigation_place_footer {
+    flex-direction: column;
+    padding-left: 0;
+  }
+}

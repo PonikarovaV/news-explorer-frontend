@@ -1,4 +1,5 @@
 @import './_theme/_dark/header__navigation-section_theme_dark.css';
+@import './_theme/_light/header__navigation-section_theme_light.css';
 
 .header__navigation-section {
   display: flex;

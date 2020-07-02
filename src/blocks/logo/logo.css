@@ -11,6 +11,14 @@
   line-height: 24px;
 }
 
+.logo:hover {
+  opacity: 0.7;
+}
+
+.logo:active {
+  color: #2A65CC;
+}
+
 @media (min-width: 320px) and (max-width: 768px) {
   .logo {
     font-size: calc((100vw - 320px)/(768 - 320) * (20 - 16) + 16px);

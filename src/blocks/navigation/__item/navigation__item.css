@@ -1,0 +1,15 @@
+@import './_place/_header/navigation__item_place_header.css';
+@import './_place/_mobile-menu/navigation__item_place_mobile-menu.css';
+@import './_place/_footer/navigation__item_place_footer.css';
+@import './_border/_light/navigation__item_border_light.css';
+@import './_border/_dark/navigation__item_border_dark.css';
+@import './_underline/navigation__item_underline.css';
+
+.navigation__item {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__item:last-child {
+  margin-right: 0;
+}

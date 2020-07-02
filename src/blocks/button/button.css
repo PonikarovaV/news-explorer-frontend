@@ -10,6 +10,12 @@
 
 .button:hover {
   cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+.button:active {
+  box-shadow: 0px 5px 5px rgba(14, 26, 57, 0.2);
 }
 
 .button_type_screen-main-action {
@@ -42,9 +48,9 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  border: 1px solid #FFF;
+  /* border: 1px solid #FFF;
   background-color: unset;
-  color: #FFF;
+  color: #FFF; */
 }
 
 .button_type_search {
@@ -55,6 +61,14 @@
   font-size: 18px;
   line-height: 24px;
   color: #FFF;
+}
+
+.button_type_search:hover {
+  background-color: #347EFF;
+}
+
+.button_type_search:active {
+  background-color: #2A65CC;
 }
 
 .button_theme_blue {

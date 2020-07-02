@@ -15,11 +15,11 @@
   <header class="header page__header">
     <div class="wrapper header__navigation-section">
       <a class="logo logo_theme_dark" href="./index.html">NewsExplorer</a>
-      <ul class="navigation header__navigation header__navigation_type_screen">
+      <ul class="navigation navigation_place_header">
         <li class="navigation__item navigation__item_place_header">
           <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
         </li>
-        <li class="navigation__item navigation__item_place_header navigation__item_active_dark">
+        <li class="navigation__item navigation__item_place_header navigation__item_border_dark">
           <a class="navigation__link navigation__link_theme_dark" href="./articles.html">Сохраненные статьи</a>
         </li>
         <li class="navigation__item navigation__item_place_header">
@@ -28,13 +28,36 @@
           </button>
         </li>
       </ul>
-      <img class="header__menu-icon" src="<%=require('../../images/icons/menu-icon.svg')%>" alt="Menu icon">
+      <img class="header__menu-icon" src="<%=require('../../images/icons/menu-icon-black.svg')%>" alt="Menu icon">
     </div>
     <hr class="content-separator">
     <div class="wrapper info-block header__info-block">
       <p class="info-block__description">Сохранённые статьи</p>
       <h2 class="title title_theme_dark info-block__title">Грета, у вас 5 сохранённых статей</h2>
       <p class="info-block__subtitle">По ключевым словам: <strong>Природа</strong>, <strong>Тайга</strong> и <b>2 другим</b></p>
+    </div>
+
+    <div class="mobile-menu mobile-menu_theme_light mobile-menu_invisible">
+      <div class="wrapper header__navigation-section header__navigation-section_theme_light">
+        <a class="logo logo_theme_dark" href="#">NewsExplorer</a>
+        <img class="header__menu-close-icon" src="<%=require('../../images/icons/menu-close-icon-black.svg')%>" alt="Кнопка закрыть меню">
+      </div>
+
+      <hr class="content-separator">
+
+        <ul class="navigation navigation_theme_light navigation_place_mobile-menu">
+          <li class="navigation__item navigation__item_place_mobile-menu">
+            <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
+          </li>
+          <li class="navigation__item navigation__item_underline navigation__item_place_mobile-menu">
+            <a class="navigation__link navigation__link_theme_dark" href="./articles.html">Сохраненные статьи</a>
+          </li>
+          <li class="navigation__item navigation__item_place_mobile-menu">
+            <button class="button button_theme_border-dark button_type_mobile-main-action">Грета&nbsp;
+              <img class="button__icon" src="<%=require('../../images/icons/logout-black.svg') %>" alt="Кнопка выхода из профиля">
+            </button>
+          </li>
+        </ul>
     </div>
   </header>
 
@@ -45,10 +68,16 @@
           <section class="news__cards">
             <section class="card">
               <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
-                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="40" rx="8" fill="#fff"/>
-                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                <div class="label">
+                  <p class="label__text">Природа</p>
+                </div>
+                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
+                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
                 </svg>
+                <div class="tooltip">
+                  <p class="tooltip__text">Убрать из сохранённых</p>
+                </div>
               </div>
               <article class="card__bottom">
                   <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
@@ -62,10 +91,16 @@
 
             <section class="card">
               <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
-                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="40" rx="8" fill="#fff"/>
-                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                <div class="label">
+                  <p class="label__text">Природа</p>
+                </div>
+                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
+                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
                 </svg>
+                <div class="tooltip">
+                  <p class="tooltip__text">Убрать из сохранённых</p>
+                </div>
               </div>
               <article class="card__bottom">
                   <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
@@ -79,10 +114,16 @@
 
             <section class="card">
               <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_03.jpg`) %>')">
-                <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="40" rx="8" fill="#fff"/>
-                  <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                <div class="label">
+                  <p class="label__text">Тайга</p>
+                </div>
+                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
+                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
                 </svg>
+                <div class="tooltip">
+                  <p class="tooltip__text">Убрать из сохранённых</p>
+                </div>
               </div>
               <article class="card__bottom">
                   <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
@@ -97,10 +138,16 @@
 
               <section class="card">
                 <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
-                  <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="40" height="40" rx="8" fill="#fff"/>
-                    <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                  <div class="label">
+                    <p class="label__text">Парки</p>
+                  </div>
+                  <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
+                    <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
                   </svg>
+                  <div class="tooltip">
+                    <p class="tooltip__text">Убрать из сохранённых</p>
+                  </div>
                 </div>
                 <article class="card__bottom">
                     <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
@@ -114,10 +161,16 @@
 
               <section class="card">
                 <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
-                  <svg class="card__checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="40" height="40" rx="8" fill="#fff"/>
-                    <path d="M19.382 23.714L14 27.943V12h12v15.942l-5.382-4.228-.618-.486-.618.486z" stroke="#B6BCBF" stroke-width="2"/>
+                  <div class="label">
+                    <p class="label__text">Фотография</p>
+                  </div>
+                  <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
+                    <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
                   </svg>
+                  <div class="tooltip">
+                    <p class="tooltip__text">Убрать из сохранённых</p>
+                  </div>
                 </div>
                 <article class="card__bottom">
                     <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
@@ -140,7 +193,7 @@
     <div class="wrapper footer__content">
       <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
       <div class="footer__info">
-        <ul class="navigation footer__navigation">
+        <ul class="navigation navigation_place_footer">
           <li class="navigation__item navigation__item_place_footer">
             <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
           </li>

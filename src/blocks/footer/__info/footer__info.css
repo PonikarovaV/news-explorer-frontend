@@ -1,0 +1,18 @@
+.footer__info {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .footer__info {
+    order: 1;
+    width: calc((100vw - 320px)/(767 - 320) * (464 - 454) + 454px);
+    margin-bottom: 38px;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer__info {
+    width: 100%;
+  }
+}
