@@ -1,0 +1,6 @@
+.form__error_type_server-error {
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}

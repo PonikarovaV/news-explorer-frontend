@@ -1,0 +1,9 @@
+.head-section_type_popup {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .head-section_type_popup {
+    display: flex;
+  }
+}

@@ -1,3 +1,6 @@
+@import './_invisible/popup_invisible.css';
+@import './__content/popup__content.css';
+
 .popup {
   position: fixed;
   top: 0;
@@ -10,20 +13,11 @@
   background-color: rgba(0, 0, 0, .5);
 }
 
-.popup_invisible {
-  display: none;
-}
-
-.popup__content {
-  position: relative;
-}
-
-.popup__close-icon {
-  position: absolute;
-  top: -46px;
-  right: -46px;
-}
-
-.popup__close-icon:hover {
-  cursor: pointer;
+@media (max-width: 450px) {
+  .popup {
+    background-image: url(../../images/main-page/main-page-mobile-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
 }

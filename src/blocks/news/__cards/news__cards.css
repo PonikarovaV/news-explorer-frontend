@@ -1,0 +1,35 @@
+.news__cards {
+  width: 100%;
+  margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-template-rows: repeat(auto-fill, 576px);
+  column-gap: 16px;
+  row-gap: 16px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .news__cards {
+    grid-template-columns: repeat(auto-fill, calc((100vw - 768px)/(1439 - 768) * (400 - 224) + 224px));
+    grid-template-rows: repeat(auto-fill, calc((100vw - 768px)/(1439 - 768) * (576 - 420) + 420px));
+    column-gap: calc((100vw - 768px)/(1439 - 768) * (16 - 8) + 8px);
+    row-gap: calc((100vw - 768px)/(1439 - 768) * (16 - 8) + 8px);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .news__cards {
+    grid-template-columns: repeat(auto-fill, calc((100vw - 320px)/(767 - 320) * (224 - 288) + 288px));
+    grid-template-rows: repeat(auto-fill, calc((100vw - 320px)/(767 - 320) * (420 - 446) + 446px));
+    row-gap: 10px;
+  }
+}
+
+@media (max-width: 319px) {
+  .news__cards {
+    grid-template-columns: repeat(auto-fill, 288px);
+    grid-template-rows: repeat(auto-fill, 446px);
+    row-gap: 10px;
+  }
+}

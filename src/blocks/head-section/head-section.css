@@ -1,0 +1,17 @@
+@import './_type/_base/head-section_type_base.css';
+@import './_type/_popup/head-section_type_popup.css';
+@import './_theme/_light/head-section_theme_light.css';
+@import './_theme/_dark/head-section_theme_dark.css';
+
+.head-section {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .head-section {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}

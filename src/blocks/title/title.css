@@ -1,3 +1,5 @@
+@import './_theme/_dark/title_theme_dark.css';
+
 .title {
   margin: 0;
   font-family: 'Roboto Slab';
@@ -5,10 +7,6 @@
   font-weight: normal;
   font-size: 40px;
   line-height: 46px;
-}
-
-.title_theme_dark {
-  color: #1A1B22;
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {

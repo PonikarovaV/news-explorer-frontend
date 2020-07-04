@@ -1,0 +1,13 @@
+.colored-wrapper_type_header {
+  background-image: url(../../../../images/main-page/main-page-header-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 450px) {
+  .colored-wrapper_type_header {
+    background-image: url(../../../../images/main-page/main-page-mobile-bg.jpg);
+    background-position: top;
+  }
+}

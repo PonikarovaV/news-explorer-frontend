@@ -1,0 +1,15 @@
+@import './_active/social__item_active.css';
+
+.social__item {
+  margin: 0 28px 0 0;
+}
+
+.social__item:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 767px) {
+  .social__item {
+    padding: 0;
+  }
+}

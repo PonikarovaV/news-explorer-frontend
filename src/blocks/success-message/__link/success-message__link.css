@@ -1,0 +1,11 @@
+.success-message__link {
+  margin: 0;
+  text-decoration: none;
+  text-align: start;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #2F71E5;
+}

@@ -1,0 +1,13 @@
+@import './_type/_server-error/form__error_type_server-error.css';
+
+.form__error {
+  position: absolute;
+  left: 0;
+  bottom: 13px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+}

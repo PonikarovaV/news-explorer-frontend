@@ -1,3 +1,6 @@
+@import './__text/success-message__text.css';
+@import './__link/success-message__link.css';
+
 .success-message {
   box-sizing: border-box;
   padding: 43px 36px 51px;
@@ -8,27 +11,4 @@
   background-color: #FFF;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
-}
-
-.success-message__text {
-  margin: 0 0 14px 0;
-  text-align: start;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000;
-}
-
-.success-message__link {
-  margin: 0;
-  text-decoration: none;
-  text-align: start;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #2F71E5;
 }

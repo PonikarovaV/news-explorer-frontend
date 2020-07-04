@@ -1,37 +1,10 @@
+@import './__item/social__item.css';
+@import './__link/social__link.css';
+
 .social {
   height: 100%;
   margin: 0;
   padding-left: 0;
   list-style: none;
   display: flex;
-}
-
-.social__item {
-  margin: 0 28px 0 0;
-}
-
-.social__item:last-child {
-  margin-right: 0;
-}
-
-.social__item_active {
-  border-bottom: 3px solid #FFF;
-}
-
-.social__link {
-  text-decoration: none;
-}
-
-.social__link:hover {
-  opacity: 0.7;
-}
-
-.social__link:active .social__path {
-  fill: #2A65CC;
-}
-
-@media (max-width: 767px) {
-  .social__item {
-    padding: 0;
-  }
 }

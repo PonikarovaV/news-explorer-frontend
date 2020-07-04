@@ -1,0 +1,11 @@
+@import './__path/close-icon__path.css';
+@import './_type/_screen/close-icon_type_screen.css';
+
+.close-icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.close-icon:active {
+  opacity: 1;
+}

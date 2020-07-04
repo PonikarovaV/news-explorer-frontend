@@ -1,0 +1,18 @@
+.close-icon_type_screen {
+  position: absolute;
+  top: -46px;
+  right: -46px;
+}
+
+@media (max-width: 767px) {
+  .close-icon_type_screen {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .close-icon_type_screen {
+    display: none;
+  }
+}
