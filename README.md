@@ -37,4 +37,3 @@ npm install
 | npm run build | Сборка проекта для production |
 | npm run deploy | Деплой проекта на GitHub |
 
-
