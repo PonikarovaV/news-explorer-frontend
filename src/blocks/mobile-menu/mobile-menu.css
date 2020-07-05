@@ -1,0 +1,12 @@
+@import './_theme/_dark/mobile-menu_theme_dark.css';
+@import './_theme/_light/mobile-menu_theme_light.css';
+@import './_invisible/mobile-menu_invisible.css';
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}

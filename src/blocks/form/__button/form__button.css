@@ -1,0 +1,14 @@
+@import './_active/form__button_active.css';
+@import './_inactive/form__button_inactive.css';
+
+.form__button {
+  padding-top: 21px;
+  padding-bottom: 19px;
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}

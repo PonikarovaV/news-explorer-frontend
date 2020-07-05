@@ -1,0 +1,24 @@
+@import './_theme/_dark/title_theme_dark.css';
+
+.title {
+  margin: 0;
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .title {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (40 - 30) + 30px);
+    line-height:  calc((100vw - 768px)/(1439 - 768) * (46 - 34) + 34px);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height:  34px;
+  }
+}

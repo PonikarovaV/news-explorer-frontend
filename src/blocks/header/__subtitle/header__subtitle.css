@@ -1,0 +1,23 @@
+.header__subtitle {
+  max-width: 545px;
+  margin: 0 0 64px 0;
+  text-align: start;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFF;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .header__subtitle {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (18 - 16) + 16px);
+  }
+}
+
+@media (max-width: 767px) {
+  .header__subtitle {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,11 @@
+.request-info__message {
+  max-width: 356px;
+  margin: 16px auto 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #B6BCBF;
+}

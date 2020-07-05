@@ -1,0 +1,32 @@
+@import './_theme/_dark/logo_theme_dark.css';
+@import './_theme/_light/logo_theme_light.css';
+
+.logo {
+  margin: 0;
+  text-decoration: none;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.logo:active {
+  color: #2A65CC;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .logo {
+    font-size: calc((100vw - 320px)/(768 - 320) * (20 - 16) + 16px);
+  }
+}
+
+@media (max-width: 319px) {
+  .logo {
+    font-size: 16px;
+  }
+}

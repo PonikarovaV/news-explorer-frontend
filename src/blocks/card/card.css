@@ -1,0 +1,16 @@
+@import './__image/card__image.css';
+@import './__checked-icon/checked-icon.css';
+@import './__date/card__date.css';
+@import './__main/card__main.css';
+@import './__title/card__title.css';
+@import './__text/card__text.css';
+@import './__source/card__source.css';
+@import './__bottom/card__bottom.css';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #FFF;
+}

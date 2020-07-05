@@ -1,0 +1,28 @@
+@import './__text/button__text.css';
+@import './_type/_search/button_type_search.css';
+@import './_type/_screen-main-action/button_type_screen-main-action.css';
+@import './_type/_mobile-main-action/button_type_mobile-main-action.css';
+@import './_type/_show-more/button_type_show-more.css';
+@import './_theme/_blue/button_theme_blue.css';
+@import './_border/_light/button_border_light.css';
+@import './_border/_dark/button_border_dark.css';
+
+.button {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+.button:active {
+  box-shadow: 0px 5px 5px rgba(14, 26, 57, 0.2);
+}

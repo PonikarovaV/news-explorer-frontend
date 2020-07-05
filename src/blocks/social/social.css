@@ -1,0 +1,10 @@
+@import './__item/social__item.css';
+@import './__link/social__link.css';
+
+.social {
+  height: 100%;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+}

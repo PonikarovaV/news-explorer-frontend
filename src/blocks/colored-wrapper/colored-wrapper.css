@@ -1,0 +1,7 @@
+@import './_type/_header/colored-wrapper_type_header.css';
+@import './_type/_news/colored-wrapper_type_news.css';
+
+.colored-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}

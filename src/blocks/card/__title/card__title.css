@@ -1,0 +1,32 @@
+.card__title {
+  margin: 0 0 16px 0;
+  text-align: start;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1A1B22;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .card__title {
+    margin-bottom: calc((100vw - 768px)/(1439 - 768) * (16 - 10) + 10px);
+    font-size: calc((100vw - 768px)/(1439 - 768) * (26 - 22) + 22px);
+    line-height: calc((100vw - 768px)/(1439 - 768) * (30 - 24) + 24px);
+  }
+}
+
+@media (max-width: 767px) {
+  .card__title {
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+

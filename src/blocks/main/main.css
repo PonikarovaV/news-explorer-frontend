@@ -1,0 +1,6 @@
+@import './__about/main__about.css';
+@import './__news/main__news.css';
+
+.main {
+  width: 100%;
+}

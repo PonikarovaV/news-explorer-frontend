@@ -1,0 +1,7 @@
+@import './__input/search__input.css';
+@import './__button/search__button.css';
+
+.search {
+  position: relative;
+  width: 100%;
+}

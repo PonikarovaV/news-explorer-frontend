@@ -1,0 +1,21 @@
+@import './__avatar/about__avatar.css';
+@import './__info/about__info.css';
+@import './__title/about__title.css';
+@import './__text/about__text.css';
+
+.about {
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: 41.5% 53.5%;
+  column-gap: 5%;
+  row-gap: 24px;
+  justify-content: start;
+}
+
+@media (max-width: 767px) {
+  .about {
+    grid-template-columns: minmax(272px, 464px);
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+  }
+}

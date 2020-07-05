@@ -1,0 +1,19 @@
+.search__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .search__button {
+    position: static;
+    width: 288px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search__button {
+    width: 100%;
+  }
+}

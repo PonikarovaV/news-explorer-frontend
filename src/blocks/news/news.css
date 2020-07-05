@@ -1,0 +1,12 @@
+@import './_invisible/news_invisible.css';
+@import './__title/news__title.css';
+@import './__cards/news__cards.css';
+
+.news {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

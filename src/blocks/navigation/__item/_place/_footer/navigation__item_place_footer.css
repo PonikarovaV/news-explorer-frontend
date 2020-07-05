@@ -1,0 +1,15 @@
+.navigation__item_place_footer {
+  margin: 0 32px 0 0;
+}
+
+@media (max-width: 767px) {
+  .navigation__item_place_footer {
+    margin-right: 0;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .navigation__item_place_footer:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,25 @@
+.header__title {
+  max-width: 545px;
+  margin: 0 0 32px 0;
+  text-align: start;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 64px;
+  color: #FFF;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .header__title {
+    font-size: calc((100vw - 768px)/(1439 - 768) * (60 - 36) + 36px);
+    line-height: calc((100vw - 768px)/(1439 - 768) * (64 - 40) + 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .header__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
