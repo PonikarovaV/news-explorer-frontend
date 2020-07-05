@@ -4,6 +4,7 @@
 @import './__input/form__input.css';
 @import './__button/form__button.css';
 @import './__error/form__error.css';
+@import './__fieldset/form__fieldset.css';
 @import './__redirect-text/form__redirect-text.css';
 @import './__redirect-link/form__redirect-link.css';
 

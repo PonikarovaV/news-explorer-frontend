@@ -88,6 +88,7 @@
             <section class="news__cards">
 <!-- CARD -->
               <section class="card">
+                <!-- background задан инлайново намеренно. На мой взгляд картинка не несет контентной значимости, если задавать через bg - позволяет хорошо адаптировать изображение под разные разрешения используя минимум media queries. Не нужно плодить допкалссы для разных изображений, плюс через js легко поменять -->
                 <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_06.jpg`) %>')">
                   <svg class="checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect class="checked-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
@@ -180,25 +181,27 @@
             <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
           </svg>
           <form class="form">
-            <legend class="form__legend">Вход</legend>
-            <div class="form__field">
-              <label class="form__label" for="signin-email">Email</label>
-              <input class="form__input"
-                     id="signin-email"
-                     placeholder="Введите почту"
-                     type="email"
-                     required>
-              <span class="form__error" id="error-signin-email">Неправильный формат email</span>
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="signin-password">Пароль</label>
-              <input class="form__input"
-                     id="signin-password"
-                     placeholder="Введите пароль"
-                     type="password"
-                     required>
-              <span class="form__error" id="error-signin-password">Неправильный формат password</span>
-            </div>
+            <fieldset class="form__fieldset">
+              <legend class="form__legend">Вход</legend>
+              <div class="form__field">
+                <label class="form__label" for="signin-email">Email</label>
+                <input class="form__input"
+                       id="signin-email"
+                       placeholder="Введите почту"
+                       type="email"
+                       required>
+                <span class="form__error" id="error-signin-email">Неправильный формат email</span>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="signin-password">Пароль</label>
+                <input class="form__input"
+                       id="signin-password"
+                       placeholder="Введите пароль"
+                       type="password"
+                       required>
+                <span class="form__error" id="error-signin-password">Неправильный формат password</span>
+              </div>
+            </fieldset>
             <button class="button form__button form__button_inactive" disabled>Войти</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signup">Зарегистрироваться</a></p>
           </form>
@@ -217,35 +220,37 @@
             <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
           </svg>
           <form class="form">
-            <legend class="form__legend">Регистрация</legend>
-            <div class="form__field">
-              <label class="form__label" for="signup-email">Email</label>
-              <input class="form__input"
-                     id="signup-email"
-                     placeholder="Введите почту"
-                     type="email"
-                     required>
-              <span class="form__error" id="error-signup-email">Неправильный формат email</span>
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="signup-password">Пароль</label>
-              <input class="form__input"
-                     id="signup-password"
-                     placeholder="Введите пароль"
-                     type="password"
-                     required>
-              <span class="form__error" id="error-signup-password">Неправильный формат password</span>
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="signup-name">Имя</label>
-              <input class="form__input"
-                     id="signup-name"
-                     placeholder="Введите своё имя"
-                     type="text"
-                     required>
-              <span class="form__error" id="error-signup-name"></span>
-              <span class="form__error form__error_type_server-error" id="server-error">Такой пользователь уже есть</span>
-            </div>
+            <fieldset class="form__fieldset">
+              <legend class="form__legend">Регистрация</legend>
+              <div class="form__field">
+                <label class="form__label" for="signup-email">Email</label>
+                <input class="form__input"
+                       id="signup-email"
+                       placeholder="Введите почту"
+                       type="email"
+                       required>
+                <span class="form__error" id="error-signup-email">Неправильный формат email</span>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="signup-password">Пароль</label>
+                <input class="form__input"
+                       id="signup-password"
+                       placeholder="Введите пароль"
+                       type="password"
+                       required>
+                <span class="form__error" id="error-signup-password">Неправильный формат password</span>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="signup-name">Имя</label>
+                <input class="form__input"
+                       id="signup-name"
+                       placeholder="Введите своё имя"
+                       type="text"
+                       required>
+                <span class="form__error" id="error-signup-name"></span>
+                <span class="form__error form__error_type_server-error" id="server-error">Такой пользователь уже есть</span>
+              </div>
+            </fieldset>
             <button class="button form__button form__button_inactive">Зарегистрироваться</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signin">Войти</a></p>
           </form>
