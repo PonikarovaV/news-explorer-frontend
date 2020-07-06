@@ -13,14 +13,19 @@ export default class Validation {
 
   _inputState = false;
 
-  _formState = {};
+  _formState = null;
 
   _error = null;
 
   constructor(options) {
-    this.form = options.form;
-    this.inputList = this.form.querySelectorAll(`.${options.inputClass}`);
-    this.button = this.form.querySelector(`.${options.buttonClass}`);
+    this._form = options.form;
+    this._inputList = this._form.querySelectorAll(`.${options.inputClass}`);
+    this._button = this._form.querySelector(`.${options.buttonClass}`);
+
+    this._formState = [...this._inputList].reduce((acc, current) => ({
+      ...acc,
+      [current.id]: false,
+    }), {});
   }
 
   run() {
@@ -33,18 +38,21 @@ export default class Validation {
   }
 
   _formListener(action) {
-    [...this.inputList].forEach((input) => {
+    [...this._inputList].forEach((input) => {
       input[action]('input', (event) => {
-        this._currentInput = event.target;
-        this._currentInputId = event.target.id;
-        this._currentInputValue = event.target.value;
-        this._currentInputType = event.target.type;
-        this._error = document.querySelector(`#error-${this._currentInputId}`);
-
+        this._setValues(event.target);
         this._checkInputState();
         this._switchButton(this._checkFormState());
       });
     });
+  }
+
+  _setValues(input) {
+    this._currentInput = input;
+    this._currentInputId = input.id;
+    this._currentInputValue = input.value;
+    this._currentInputType = input.type;
+    this._error = document.querySelector(`#error-${this._currentInputId}`);
   }
 
   _checkInputState() {
@@ -59,13 +67,7 @@ export default class Validation {
   }
 
   _checkFormState() {
-    const inputListStates = Object.values(this._formState);
-
-    if (inputListStates.length === this.inputList.length) {
-      return inputListStates.every((value) => value);
-    }
-
-    return false;
+    return Object.values(this._formState).every((value) => value);
   }
 
   _validateInput() {
@@ -104,13 +106,13 @@ export default class Validation {
 
   _switchButton(status) {
     if (status) {
-      this.button.classList.remove('form__button_inactive');
-      this.button.classList.add('form__button_active');
-      this.button.removeAttribute('disabled', true);
+      this._button.classList.remove('form__button_inactive');
+      this._button.classList.add('form__button_active');
+      this._button.removeAttribute('disabled', true);
     } else {
-      this.button.classList.remove('form__button_active');
-      this.button.classList.add('form__button_inactive');
-      this.button.setAttribute('disabled', true);
+      this._button.classList.remove('form__button_active');
+      this._button.classList.add('form__button_inactive');
+      this._button.setAttribute('disabled', true);
     }
   }
 }
