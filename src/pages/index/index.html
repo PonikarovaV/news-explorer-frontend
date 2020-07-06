@@ -88,7 +88,6 @@
             <section class="news__cards">
 <!-- CARD -->
               <section class="card">
-                <!-- background задан инлайново намеренно. На мой взгляд картинка не несет контентной значимости, если задавать через bg - позволяет хорошо адаптировать изображение под разные разрешения используя минимум media queries. Не нужно плодить допкалссы для разных изображений, плюс через js легко поменять -->
                 <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_06.jpg`) %>')">
                   <svg class="checked-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect class="checked-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
@@ -180,7 +179,7 @@
             <path class="close-icon__path" d="M22.357 20l8.821 8.822-2.357 2.357L18.35 20.707a1 1 0 010-1.414L28.82 8.822l2.357 2.357L22.357 20z" fill="#fff"/>
             <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
           </svg>
-          <form class="form">
+          <form id="form-signin" class="form">
             <fieldset class="form__fieldset">
               <legend class="form__legend">Вход</legend>
               <div class="form__field">
@@ -202,7 +201,7 @@
                 <span class="form__error" id="error-signin-password">Неправильный формат password</span>
               </div>
             </fieldset>
-            <button class="button form__button form__button_inactive" disabled>Войти</button>
+            <button class="form__button form__button_inactive" disabled>Войти</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signup">Зарегистрироваться</a></p>
           </form>
         </div>
@@ -251,7 +250,7 @@
                 <span class="form__error form__error_type_server-error" id="server-error">Такой пользователь уже есть</span>
               </div>
             </fieldset>
-            <button class="button form__button form__button_inactive">Зарегистрироваться</button>
+            <button class="form__button form__button_inactive">Зарегистрироваться</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signin">Войти</a></p>
           </form>
         </div>

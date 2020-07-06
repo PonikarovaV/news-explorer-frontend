@@ -3,3 +3,12 @@
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   color: #FFF;
 }
+
+.form__button_active:hover {
+  cursor: pointer;
+  background-color: #347EFF;
+}
+
+.form__button_active:active {
+  background-color: #2A65CC;
+}

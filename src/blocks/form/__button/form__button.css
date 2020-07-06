@@ -2,13 +2,18 @@
 @import './_inactive/form__button_inactive.css';
 
 .form__button {
+  box-sizing: border-box;
   padding-top: 21px;
   padding-bottom: 19px;
   width: 100%;
   margin-bottom: 16px;
+  text-align: center;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+
+  border: none;
+  border-radius: 100px;
 }
