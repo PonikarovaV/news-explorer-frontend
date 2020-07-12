@@ -21,6 +21,7 @@ export default class Validation {
     this._form = options.form;
     this._inputList = this._form.querySelectorAll(`.${options.inputClass}`);
     this._button = this._form.querySelector(`.${options.buttonClass}`);
+    this._invalidInputClass = options.invalidInputClass;
 
     this._formState = [...this._inputList].reduce((acc, current) => ({
       ...acc,
@@ -33,8 +34,14 @@ export default class Validation {
   }
 
   reset() {
+    this._switchOffError();
+    this._switchButton(false);
+  }
+
+  stop() {
     this._formListener('removeEventListener');
-    this._resetErrorText();
+    this._switchOffError();
+    this._switchButton(false);
   }
 
   _formListener(action) {
@@ -60,9 +67,9 @@ export default class Validation {
     this._formState[this._currentInputId] = this._inputState;
 
     if (!this._inputState) {
-      this._switchError();
+      this._switchOnError();
     } else {
-      this._resetErrorText();
+      this._switchOffError();
     }
   }
 
@@ -76,18 +83,21 @@ export default class Validation {
         return validator.isEmail(this._currentInputValue);
       case 'password':
         return VALIDATION_REGEXP_PATTERNS.isPassword.test(this._currentInputValue);
-      case 'name':
+      case 'text':
         return VALIDATION_REGEXP_PATTERNS.isName.test(this._currentInputValue);
       default:
         return false;
     }
   }
 
-  _resetErrorText() {
+  _switchOffError() {
     this._error.textContent = '';
+    this._currentInput.classList.remove(this._invalidInputClass);
   }
 
-  _switchError() {
+  _switchOnError() {
+    this._currentInput.classList.add(this._invalidInputClass);
+
     switch (this._currentInputType) {
       case 'email':
         this._error.textContent = FORM_ERRORS.notValidEmail;
@@ -95,7 +105,7 @@ export default class Validation {
       case 'password':
         this._error.textContent = FORM_ERRORS.notValidPassword;
         break;
-      case 'name':
+      case 'text':
         this._error.textContent = FORM_ERRORS.notValidName;
         break;
       default:

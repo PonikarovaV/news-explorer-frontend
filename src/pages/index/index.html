@@ -16,17 +16,7 @@
     <header class="colored-wrapper colored-wrapper_type_header header page__header">
       <div class="wrapper head-section head-section_type_base">
         <a class="logo logo_theme_light" href="./index.html">NewsExplorer</a>
-        <ul class="navigation navigation_place_header">
-          <li class="navigation__item navigation__item_place_header navigation__item_border_light">
-            <a class="navigation__link navigation__link_theme_light" href="./index.html">Главная</a>
-          </li>
-          <li class="navigation__item navigation__item_place_header">
-            <a class="navigation__link navigation__link_theme_light" href="./articles.html">Сохраненные статьи</a>
-          </li>
-          <li class="navigation__item navigation__item_place_header">
-            <button id="button-login-screen" class="button button__text button_type_screen-main-action button_border_light">Авторизоваться</button>
-          </li>
-        </ul>
+        <ul class="navigation navigation_place_header"></ul>
         <img class="header__menu-icon" src="<%=require('../../images/icons/menu-icon-white.svg')%>" alt="Menu icon">
       </div>
 
@@ -49,19 +39,7 @@
 
         <hr class="content-separator">
 
-        <ul class="navigation navigation_theme_dark navigation_place_mobile-menu">
-          <li class="navigation__item navigation__item_underline navigation__item_place_mobile-menu">
-            <a class="navigation__link navigation__link_theme_light" href="./index.html">Главная</a>
-          </li>
-          <li class="navigation__item navigation__item_place_mobile-menu">
-            <a class="navigation__link navigation__link_theme_light" href="./articles.html">Сохраненные статьи</a>
-          </li>
-          <li class="navigation__item navigation__item_place_mobile-menu">
-            <button id="button-logout-mobile" class="button button__text button_border_light button_type_mobile-main-action">Грета&nbsp;
-              <img class="button__icon" src="<%=require('../../images/icons/logout-white.svg') %>" alt="Кнопка выхода из профиля">
-            </button>
-          </li>
-        </ul>
+        <ul class="navigation navigation_theme_dark navigation_place_mobile-menu"></ul>
       </div>
 <!-- HEADER MOBILE MENU END -->
     </header>
@@ -169,7 +147,8 @@
       </div>
 <!-- ABOUT END -->
 <!-- POPUP SIGNIN -->
-      <div id="popup-signin" class="popup popup_invisible">
+<!-- id="popup-signin"  -->
+      <div class="popup popup_invisible">
         <div class="popup__content">
           <div class="wrapper head-section head-section_type_popup">
             <a class="logo logo_theme_light" href="./index.html">NewsExplorer</a>
@@ -179,7 +158,7 @@
             <path class="close-icon__path" d="M22.357 20l8.821 8.822-2.357 2.357L18.35 20.707a1 1 0 010-1.414L28.82 8.822l2.357 2.357L22.357 20z" fill="#fff"/>
             <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
           </svg>
-          <form id="form-signin" class="form">
+          <form id="form-signin" class="form form_active">
             <fieldset class="form__fieldset">
               <legend class="form__legend">Вход</legend>
               <div class="form__field">
@@ -189,7 +168,7 @@
                        placeholder="Введите почту"
                        type="email"
                        required>
-                <span class="form__error" id="error-signin-email">Неправильный формат email</span>
+                <span class="form__error" id="error-signin-email"></span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="signin-password">Пароль</label>
@@ -198,27 +177,14 @@
                        placeholder="Введите пароль"
                        type="password"
                        required>
-                <span class="form__error" id="error-signin-password">Неправильный формат password</span>
+                <span class="form__error" id="error-signin-password"></span>
               </div>
             </fieldset>
             <button class="form__button form__button_inactive" disabled>Войти</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signup">Зарегистрироваться</a></p>
           </form>
-        </div>
-      </div>
-<!-- POPUP SIGNIN END -->
-<!-- POPUP SIGNUP -->
-      <div id="popup-signup" class="popup popup_invisible">
-        <div class="popup__content">
-          <div class="wrapper head-section head-section_type_popup">
-            <a class="logo logo_theme_light" href="./index.html">NewsExplorer</a>
-            <img class="close-icon close-icon_type_mobile" src="<%=require('../../images/icons/menu-close-icon-white.svg')%>" alt="Закрыть форму регистрации">
-          </div>
-          <svg class="close-icon close-icon_type_screen" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="close-icon__path" d="M22.357 20l8.821 8.822-2.357 2.357L18.35 20.707a1 1 0 010-1.414L28.82 8.822l2.357 2.357L22.357 20z" fill="#fff"/>
-            <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
-          </svg>
-          <form class="form">
+
+          <form id="form-signup" class="form">
             <fieldset class="form__fieldset">
               <legend class="form__legend">Регистрация</legend>
               <div class="form__field">
@@ -228,7 +194,7 @@
                        placeholder="Введите почту"
                        type="email"
                        required>
-                <span class="form__error" id="error-signup-email">Неправильный формат email</span>
+                <span class="form__error" id="error-signup-email"></span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="signup-password">Пароль</label>
@@ -237,7 +203,7 @@
                        placeholder="Введите пароль"
                        type="password"
                        required>
-                <span class="form__error" id="error-signup-password">Неправильный формат password</span>
+                <span class="form__error" id="error-signup-password"></span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="signup-name">Имя</label>
@@ -247,17 +213,71 @@
                        type="text"
                        required>
                 <span class="form__error" id="error-signup-name"></span>
-                <span class="form__error form__error_type_server-error" id="server-error">Такой пользователь уже есть</span>
+                <span class="form__error form__error_type_server-error" id="server-error"></span>
+              </div>
+            </fieldset>
+            <button class="form__button form__button_inactive">Зарегистрироваться</button>
+            <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signin">Войти</a></p>
+          </form>
+
+          <div class="success-message">
+            <p class="success-message__text">Пользователь успешно зарегистрирован!</p>
+            <a class="success-message__link" href="#popup-signin">Выполнить вход</a>
+          </div>
+        </div>
+      </div>
+<!-- POPUP SIGNIN END -->
+<!-- POPUP SIGNUP -->
+      <!-- <div id="popup-signup" class="popup popup_invisible">
+        <div class="popup__content">
+          <div class="wrapper head-section head-section_type_popup">
+            <a class="logo logo_theme_light" href="./index.html">NewsExplorer</a>
+            <img class="close-icon close-icon_type_mobile" src="<%=require('../../images/icons/menu-close-icon-white.svg')%>" alt="Закрыть форму регистрации">
+          </div>
+          <svg class="close-icon close-icon_type_screen" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="close-icon__path" d="M22.357 20l8.821 8.822-2.357 2.357L18.35 20.707a1 1 0 010-1.414L28.82 8.822l2.357 2.357L22.357 20z" fill="#fff"/>
+            <path class="close-icon__path" d="M18.13 20l-8.82 8.822 2.356 2.357 10.472-10.472a1 1 0 000-1.414L11.666 8.822 9.31 11.179 18.131 20z" fill="#fff"/>
+          </svg>
+          <form id="form-signup" class="form">
+            <fieldset class="form__fieldset">
+              <legend class="form__legend">Регистрация</legend>
+              <div class="form__field">
+                <label class="form__label" for="signup-email">Email</label>
+                <input class="form__input"
+                       id="signup-email"
+                       placeholder="Введите почту"
+                       type="email"
+                       required>
+                <span class="form__error" id="error-signup-email"></span>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="signup-password">Пароль</label>
+                <input class="form__input"
+                       id="signup-password"
+                       placeholder="Введите пароль"
+                       type="password"
+                       required>
+                <span class="form__error" id="error-signup-password"></span>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="signup-name">Имя</label>
+                <input class="form__input"
+                       id="signup-name"
+                       placeholder="Введите своё имя"
+                       type="text"
+                       required>
+                <span class="form__error" id="error-signup-name"></span>
+                <span class="form__error form__error_type_server-error" id="server-error"></span>
               </div>
             </fieldset>
             <button class="form__button form__button_inactive">Зарегистрироваться</button>
             <p class="form__redirect-text">или <a class="form__redirect-link" href="#popup-signin">Войти</a></p>
           </form>
         </div>
-      </div>
+      </div> -->
 <!-- POPUP SIGNUP END -->
 <!-- SUCCESS MESSAGE -->
-      <div class="popup popup_invisible">
+      <!-- <div id="popup-success" class="popup popup_invisible">
         <div class="popup__content">
           <div class="wrapper head-section head-section_type_popup">
             <a class="logo logo_theme_light" href="./index.html">NewsExplorer</a>
@@ -272,7 +292,7 @@
             <a class="success-message__link" href="#popup-signin">Выполнить вход</a>
           </div>
         </div>
-      </div>
+      </div> -->
 <!-- SUCCESS MESSAGE END -->
     </main>
 <!-- FOOTER -->

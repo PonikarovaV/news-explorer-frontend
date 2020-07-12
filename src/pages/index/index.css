@@ -28,5 +28,7 @@
 @import '../../blocks/popup/popup.css';
 @import '../../blocks/popup/_invisible/popup_invisible.css';
 @import '../../blocks/form/form.css';
+@import '../../blocks/form/_active/form_active.css';
 @import '../../blocks/form/__error/_type/_server-error/form__error_type_server-error.css';
+@import '../../blocks/form/__input/_invalid/form__input_invalid.css';
 @import '../../blocks/success-message/success-message.css';

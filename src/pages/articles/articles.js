@@ -1,13 +1,13 @@
 import './articles.css';
 
-const openMenuIcon = document.querySelector('.header__menu-icon');
-const closeMenuIcon = document.querySelector('.header__menu-close-icon');
-const mobileMenu = document.querySelector('.mobile-menu');
+import HeaderNavigation from '../../scripts/components/HeaderNavigation/HeaderNavigation';
+import {
+  headerScreenNavigationOptions,
+  headerMobileNavigationOptions,
+} from '../../scripts/components/HeaderNavigation/options/articles-page-options';
 
-openMenuIcon.addEventListener('click', () => {
-  mobileMenu.classList.remove('mobile-menu_invisible');
-});
+const headerScreenNavigation = new HeaderNavigation(headerScreenNavigationOptions);
+const headerMobileNavigation = new HeaderNavigation(headerMobileNavigationOptions);
 
-closeMenuIcon.addEventListener('click', () => {
-  mobileMenu.classList.add('mobile-menu_invisible');
-});
+headerScreenNavigation.render();
+headerMobileNavigation.render();
