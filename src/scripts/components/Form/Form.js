@@ -1,7 +1,7 @@
 import BaseComponent from '../BaseComponent';
 
 export default class Form extends BaseComponent {
-  constructor(form, options) {
+  constructor(form, dependency, options) {
     super(form);
 
     this._form = form;
@@ -11,11 +11,13 @@ export default class Form extends BaseComponent {
     this._validator = options.validator;
     this._inputPrefix = options.inputPrefix;
     this._request = options.request;
+    this._popup = options.parentPopup;
+    this._dependency = dependency;
   }
 
   render() {
     this._validator.run();
-    this.buttonSubmitListener('addEventListener');
+    this._buttonSubmitListener('addEventListener');
   }
 
   show = () => {
@@ -26,20 +28,21 @@ export default class Form extends BaseComponent {
     this.domElement.classList.remove(this._activeFormClass);
   }
 
-  buttonSubmitListener = (action) => {
+  _buttonSubmitListener = (action) => {
     this._submitButton[action]('click', () => {
-      this.sendRequest();
+      console.log(action);
+      this._sendRequest();
     });
   }
 
-  getInputValues() {
+  _getInputValues() {
     return [...this._inputList].reduce((acc, current) => ({
       ...acc,
       [`${current.id.replace(this._inputPrefix, '')}`]: current.value,
     }), {});
   }
 
-  resetForm() {
+  _resetForm() {
     [...this._inputList].forEach((input) => {
       // eslint-disable-next-line no-param-reassign
       input.value = '';
@@ -48,9 +51,12 @@ export default class Form extends BaseComponent {
     this._validator.reset();
   }
 
-  async sendRequest() {
+  async _sendRequest() {
+    console.log('_sendRequest');
     try {
-      const data = await this._request(this.getInputValues());
+      const data = await this._request(this._getInputValues());
+
+      console.log(data);
 
       if (data.token) {
         localStorage.setItem('token', data.token);
@@ -58,7 +64,9 @@ export default class Form extends BaseComponent {
     } catch (error) {
       throw new Error(error);
     } finally {
-      this.resetForm();
+      this._resetForm();
+      this._dependency.render();
+      this._popup.hide();
     }
   }
 }

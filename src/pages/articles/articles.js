@@ -1,13 +1,15 @@
 import './articles.css';
+import '@babel/polyfill';
 
-import HeaderNavigation from '../../scripts/components/HeaderNavigation/HeaderNavigation';
+import HeaderNavigation from '../../scripts/components/HeaderNavigation';
+
 import {
   headerScreenNavigationOptions,
   headerMobileNavigationOptions,
-} from '../../scripts/components/HeaderNavigation/options/articles-page-options';
+} from './settings/header-navigation-settings';
 
-const headerScreenNavigation = new HeaderNavigation(headerScreenNavigationOptions);
-const headerMobileNavigation = new HeaderNavigation(headerMobileNavigationOptions);
+export const headerScreenNavigation = new HeaderNavigation(headerScreenNavigationOptions);
+export const headerMobileNavigation = new HeaderNavigation(headerMobileNavigationOptions);
 
 headerScreenNavigation.render();
 headerMobileNavigation.render();

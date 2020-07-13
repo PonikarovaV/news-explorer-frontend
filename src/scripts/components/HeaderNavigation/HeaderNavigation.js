@@ -1,4 +1,6 @@
 export default class HeaderNavigation {
+  _authState = false;
+
   constructor(options) {
     this.rootSection = document.querySelector(`.${options.rootSectionClass}`);
     this.rootSectionClassList = options.rootSectionClassList;
@@ -13,19 +15,7 @@ export default class HeaderNavigation {
 
   render() {
     this.cleanRootSection(this.rootSection);
-    this.setObserver();
     this.setMarkup();
-  }
-
-  setObserver() {
-    this.observer({
-      rootSection: this.rootSection,
-      observerConfig: this.observerConfig,
-      buttons: [
-        this.logoutButton.buttonId,
-        this.loginButton.buttonId,
-      ],
-    });
   }
 
   setMarkup() {

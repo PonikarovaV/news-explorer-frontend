@@ -1,32 +1,15 @@
 export default class BaseEventsHandler {
-  constructor(events, lazyEvents, dependencies = {}) {
+  constructor(events = [], dependencies = {}) {
     this.events = events;
-    this.lazyEvents = lazyEvents;
     this.Dependencies = dependencies;
   }
 
-  setObserver = (params) => {
-    const observer = new MutationObserver((mutationsList) => {
-      const loadedButtons = params.buttons.filter((buttonId) => (
-        mutationsList.find((mutation) => (
-          mutation.target.querySelector(`#${buttonId}`)
-        ))
-      ));
-
-      if (loadedButtons && loadedButtons.length > 0) {
-        this.setLazyHandlers(loadedButtons);
-      }
-    });
-
-    observer.observe(params.rootSection, params.observerConfig);
-  }
-
   setLazyHandlers = (buttons) => {
-    const foundEvent = this.lazyEvents.find((lazyEvent) => (
-      buttons.find((buttonId) => buttonId === lazyEvent.id)
+    const foundEvent = this.events.find((event) => (
+      buttons.find((identifier) => identifier === event.identifier)
     ));
 
-    const button = foundEvent?.id && document.querySelector(`#${foundEvent.id}`);
+    const button = foundEvent?.identifier && document.querySelector(foundEvent.identifier);
 
     if (button && foundEvent) {
       const handler = new this.Dependencies(button);
@@ -37,7 +20,10 @@ export default class BaseEventsHandler {
 
   setHandlers = () => {
     this.events.forEach((item) => {
-      const handler = item.button && new this.Dependencies(item.button);
+      const button = item.rootSection
+        ? item.rootSection.querySelector(item.identifier)
+        : document.querySelector(item.identifier);
+      const handler = button && new this.Dependencies(button);
 
       if (handler) {
         handler.addListener(item.action, item.effect);

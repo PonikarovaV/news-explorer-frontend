@@ -1,4 +1,10 @@
-import { getAuthState, cleanRootSection } from '../../../utils/helpers';
+import BaseEventsHandler from '../../../scripts/components/BaseEventsHandler';
+import Button from '../../../scripts/components/Button';
+
+import { getAuthState, cleanRootSection } from '../../../scripts/utils/helpers';
+
+import { buttonsLazyEventList } from './base-events-handler-settings';
+
 
 export const headerScreenNavigationOptions = {
   rootSectionClass: 'navigation_place_header',
@@ -49,6 +55,11 @@ export const headerScreenNavigationOptions = {
   },
   getAuthState,
   cleanRootSection,
+  observerConfig: {
+    childList: true,
+    subtree: true,
+  },
+  observer: new BaseEventsHandler(buttonsLazyEventList, Button),
 };
 
 export const headerMobileNavigationOptions = {
@@ -100,4 +111,9 @@ export const headerMobileNavigationOptions = {
   },
   getAuthState,
   cleanRootSection,
+  observerConfig: {
+    childList: true,
+    subtree: true,
+  },
+  observer: new BaseEventsHandler(buttonsLazyEventList, Button),
 };

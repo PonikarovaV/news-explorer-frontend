@@ -1,5 +1,4 @@
-import { getAuthState, cleanRootSection } from '../../../utils/helpers';
-import { baseButtonsEventsHandler } from '../../BaseEventsHandler';
+import { getAuthState, cleanRootSection } from '../../../scripts/utils/helpers';
 
 export const headerScreenNavigationOptions = {
   rootSectionClass: 'navigation_place_header',
@@ -47,11 +46,6 @@ export const headerScreenNavigationOptions = {
   },
   getAuthState,
   cleanRootSection,
-  observerConfig: {
-    childList: true,
-    subtree: true,
-  },
-  observer: baseButtonsEventsHandler.setObserver,
 };
 
 export const headerMobileNavigationOptions = {
@@ -100,9 +94,4 @@ export const headerMobileNavigationOptions = {
   },
   getAuthState,
   cleanRootSection,
-  observerConfig: {
-    childList: true,
-    subtree: true,
-  },
-  observer: baseButtonsEventsHandler.setObserver,
 };
