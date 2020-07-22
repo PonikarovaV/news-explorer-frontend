@@ -27,6 +27,7 @@ import {
   getButtonsEventList,
   getButtonsLazyEventList,
 } from './settings/base-events-handler-settings';
+import MainApi from '../../scripts/api';
 
 const popup = document.querySelector('.popup');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -98,3 +99,10 @@ headerScreenNavigation.render();
 headerMobileNavigation.render();
 
 baseButtonsEventsHandler.setHandlers();
+
+async function foo() {
+  const user = await MainApi.getUserMe();
+  console.log(user);
+}
+
+foo();

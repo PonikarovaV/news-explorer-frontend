@@ -1,70 +1,67 @@
-import BaseComponent from '../BaseComponent';
-
-export default class Form extends BaseComponent {
+export default class Form {
   constructor(form, dependency, options) {
-    super(form);
-
     this._form = form;
     this._activeFormClass = options.activeFormClass;
-    this._inputList = this._form.querySelectorAll(`.${options.inputClass}`);
-    this._submitButton = this._form.querySelector(`.${options.buttonClass}`);
+    this._inputList = this._form.querySelectorAll(options.inputIdentifier);
+    this._submitButton = this._form.querySelector(options.buttonIdentifie);
     this._validator = options.validator;
     this._inputPrefix = options.inputPrefix;
     this._request = options.request;
+    this._getUserRequest = options.getUserRequest;
     this._popup = options.parentPopup;
     this._dependency = dependency;
+
+    this._buttonIdentifier = options.buttonIdentifier;
   }
 
   render() {
     this._validator.run();
-    this._buttonSubmitListener('addEventListener');
+
+    this.formListener('addEventListener');
+  }
+
+  reset() {
+    this._form.reset();
+    this._validator.reset();
+    this.formListener('removeEventListener');
   }
 
   show = () => {
-    this.domElement.classList.add(this._activeFormClass);
+    this._form.classList.add(this._activeFormClass);
   }
 
   hide = () => {
-    this.domElement.classList.remove(this._activeFormClass);
+    this._form.classList.remove(this._activeFormClass);
   }
 
-  _buttonSubmitListener = (action) => {
-    this._submitButton[action]('click', () => {
-      console.log(action);
-      this._sendRequest();
+  formListener = (action) => {
+    this._form[action]('submit', (event) => {
+      event.preventDefault();
+
+      this.sendRequest();
     });
   }
 
-  _getInputValues() {
+  getInputValues() {
     return [...this._inputList].reduce((acc, current) => ({
       ...acc,
       [`${current.id.replace(this._inputPrefix, '')}`]: current.value,
     }), {});
   }
 
-  _resetForm() {
-    [...this._inputList].forEach((input) => {
-      // eslint-disable-next-line no-param-reassign
-      input.value = '';
-    });
-
-    this._validator.reset();
-  }
-
-  async _sendRequest() {
-    console.log('_sendRequest');
+  sendRequest = async () => {
     try {
-      const data = await this._request(this._getInputValues());
+      const data = await this._request(this.getInputValues());
 
-      console.log(data);
-
-      if (data.token) {
+      if (data?.token) {
         localStorage.setItem('token', data.token);
+        // const user = await this._getUserRequest();
+        // console.log(user);
       }
     } catch (error) {
       throw new Error(error);
     } finally {
-      this._resetForm();
+      this.reset();
       this._dependency.render();
       this._popup.hide();
     }

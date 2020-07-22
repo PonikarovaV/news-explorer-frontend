@@ -45,4 +45,21 @@ export default class MainApi {
       })
       .catch((error) => console.log(error));
   }
+
+  static getUserMe() {
+    return fetch('https://api.mygeneralnews.tk/users/me', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        return Promise.reject(new Error(res.status));
+      })
+      .catch((error) => console.log(error));
+  }
 }

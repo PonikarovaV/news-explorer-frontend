@@ -7,19 +7,21 @@ import { signinFormValidationOptions, signupFormValidationOptions } from './form
 export const signinFormOptions = {
   activeFormClass: 'form_active',
   inputPrefix: 'signin-',
-  inputClass: 'form__input',
-  buttonClass: 'form__button',
+  inputIdentifier: '.form__input',
+  buttonIdentifier: '.form__button',
   parentPopup: new Popup(document.querySelector('.popup')),
   validator: new Validation(signinFormValidationOptions),
   request: MainApi.signin,
+  getUserRequest: MainApi.getUserMe,
 };
 
 export const signupFormOptions = {
   activeFormClass: 'form_active',
   inputPrefix: 'signup-',
-  inputClass: 'form__input',
-  buttonClass: 'form__button',
+  inputIdentifier: '.form__input',
+  buttonIdentifier: '.form__button',
   parentPopup: new Popup(document.querySelector('.popup')),
   validator: new Validation(signupFormValidationOptions),
   request: MainApi.signup,
+  getUserRequest: MainApi.getUserMe,
 };

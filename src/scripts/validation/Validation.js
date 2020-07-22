@@ -34,11 +34,6 @@ export default class Validation {
   }
 
   reset() {
-    this._switchOffError();
-    this._switchButton(false);
-  }
-
-  stop() {
     this._formListener('removeEventListener');
     this._switchOffError();
     this._switchButton(false);
