@@ -7,7 +7,7 @@ export const getButtonsEventList = (settings) => (
       identifier: '.navigation_place_header',
       action: 'click',
       effect: (event) => {
-        const location = window.location.origin;
+        const location = window.location.href.replace('articles.html', '');
 
         if (event.target.closest('#button-logout-screen')) {
           localStorage.removeItem('token');
@@ -26,7 +26,7 @@ export const getButtonsEventList = (settings) => (
       identifier: '.navigation_place_mobile-menu',
       action: 'click',
       effect: (event) => {
-        const location = window.location.origin;
+        const location = window.location.href.replace('articles.html', '');
 
         if (event.target.closest('#button-logout-mobile')) {
           localStorage.removeItem('token');

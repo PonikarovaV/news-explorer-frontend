@@ -19,7 +19,7 @@ import {
 
 (function isAuth() {
   if (!getAuthState()) {
-    const location = window.location.origin;
+    const location = window.location.href.replace('articles.html', '');
 
     window.location.replace(location);
   }
