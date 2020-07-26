@@ -3,15 +3,6 @@ import { showSnackbarWithError } from '../utils/helpers';
 export default class MainApi {
   static baseUrl = 'https://api.mygeneralnews.tk'
 
-  static simpleHeader = {
-    'Content-Type': 'application/json',
-  }
-
-  static preflightHeader = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  }
-
   static checkResponse = (response) => {
     if (response.ok) {
       return response.json();
@@ -31,7 +22,9 @@ export default class MainApi {
 
     return fetch(`${MainApi.baseUrl}/signup`, {
       method: 'POST',
-      headers: MainApi.simpleHeader,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name,
         email,
@@ -47,7 +40,9 @@ export default class MainApi {
 
     return fetch(`${MainApi.baseUrl}/signin`, {
       method: 'POST',
-      headers: MainApi.simpleHeader,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         email,
         password,
@@ -70,7 +65,10 @@ export default class MainApi {
 
   static getArticles() {
     return fetch(`${MainApi.baseUrl}/articles`, {
-      headers: MainApi.preflightHeader,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     })
       .then(MainApi.checkResponse)
       .catch(showSnackbarWithError);
@@ -89,7 +87,10 @@ export default class MainApi {
 
     return fetch(`${MainApi.baseUrl}/articles`, {
       method: 'POST',
-      headers: MainApi.preflightHeader,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
       body: JSON.stringify({
         keyword,
         title,
@@ -107,7 +108,10 @@ export default class MainApi {
   static deleteArticle(articleId) {
     return fetch(`${MainApi.baseUrl}/articles/${articleId}`, {
       method: 'DELETE',
-      headers: MainApi.preflightHeader,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     })
       .then(MainApi.checkResponse)
       .catch(showSnackbarWithError);
