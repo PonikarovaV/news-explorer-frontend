@@ -34,19 +34,7 @@
 
       <hr class="content-separator">
 
-      <ul class="navigation navigation_theme_light navigation_place_mobile-menu">
-        <!-- <li class="navigation__item navigation__item_place_mobile-menu">
-          <a class="navigation__link navigation__link_theme_dark" href="./index.html">Главная</a>
-        </li>
-        <li class="navigation__item navigation__item_underline navigation__item_place_mobile-menu">
-          <a class="navigation__link navigation__link_theme_dark" href="./articles.html">Сохраненные статьи</a>
-        </li>
-        <li class="navigation__item navigation__item_place_mobile-menu">
-          <button class="button button__text button_border_dark button_type_mobile-main-action">Грета&nbsp;
-            <img class="button__icon" src="<%=require('../../images/icons/logout-black.svg') %>" alt="Кнопка выхода из профиля">
-          </button>
-        </li> -->
-      </ul>
+      <ul class="navigation navigation_theme_light navigation_place_mobile-menu"></ul>
     </div>
 <!-- HEADER MOBILE MENU END -->
   </header>
@@ -56,134 +44,17 @@
       <div class="wrapper">
 <!-- NEWS -->
         <section class="news main__news">
-          <section class="news__cards">
-<!-- CARD -->
-            <section class="card">
-              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
-                <div class="label">
-                  <p class="label__text">Природа</p>
-                </div>
-                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
-                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
-                </svg>
-                <div class="tooltip">
-                  <p class="tooltip__text">Убрать из сохранённых</p>
-                </div>
-              </div>
-              <article class="card__bottom">
-                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
-                <div class="card__main">
-                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
-                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                </div>
-                <address class="card__source">Лента.ру</address>
-              </article>
-            </section>
-<!-- CARD END -->
-<!-- CARD -->
-            <section class="card">
-              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
-                <div class="label">
-                  <p class="label__text">Природа</p>
-                </div>
-                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
-                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
-                </svg>
-                <div class="tooltip">
-                  <p class="tooltip__text">Убрать из сохранённых</p>
-                </div>
-              </div>
-              <article class="card__bottom">
-                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
-                <div class="card__main">
-                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
-                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                </div>
-                <address class="card__source">Лента.ру</address>
-              </article>
-            </section>
-<!-- CARD END -->
-<!-- CARD -->
-            <section class="card">
-              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_03.jpg`) %>')">
-                <div class="label">
-                  <p class="label__text">Тайга</p>
-                </div>
-                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
-                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
-                </svg>
-                <div class="tooltip">
-                  <p class="tooltip__text">Убрать из сохранённых</p>
-                </div>
-              </div>
-              <article class="card__bottom">
-                  <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
-                <div class="card__main">
-                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Лесные огоньки: история одной фотографии</h2>
-                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                    из местных чудес природы.</p>
-                </div>
-                <address class="card__source">Медуза</address>
-              </article>
-            </section>
-<!-- CARD END -->
-<!-- CARD -->
-            <section class="card">
-              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_04.jpg`) %>')">
-                <div class="label">
-                  <p class="label__text">Парки</p>
-                </div>
-                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
-                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
-                </svg>
-                <div class="tooltip">
-                  <p class="tooltip__text">Убрать из сохранённых</p>
-                </div>
-              </div>
-              <article class="card__bottom">
-                <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
-                <div class="card__main">
-                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
-                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                </div>
-                <address class="card__source">Лента.ру</address>
-              </article>
-            </section>
-<!-- CARD END -->
-<!-- CARD -->
-            <section class="card">
-              <div class="card__image" style="background-image: url('<%= require(`../../images/cards/image_01.jpg`) %>')">
-                <div class="label">
-                  <p class="label__text">Фотография</p>
-                </div>
-                <svg class="trash-icon" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect class="trash-icon__rect" width="40" height="40" rx="8" fill="#fff"/>
-                  <path class="trash-icon__path" fill-rule="evenodd" clip-rule="evenodd" d="M23 11h-6v2h-6v2h18v-2h-6v-2zm-10 6v11a2 2 0 002 2h10a2 2 0 002-2V17h-2v11H15V17h-2zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2z" fill="#B6BCBF"/>
-                </svg>
-                <div class="tooltip">
-                  <p class="tooltip__text">Убрать из сохранённых</p>
-                </div>
-              </div>
-              <article class="card__bottom">
-                <p class="card__date"><time datetime="2019-08-02 19:00">2 августа, 2019</time></p>
-                <div class="card__main">
-                  <h2 class="text text_family_robotoslab text_weight_normal text_theme_black text_type_small-title card__title">Национальное достояние – парки</h2>
-                  <p class="text text_family_roboto text_weight_normal text_theme_black text_type_medium card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе. В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                </div>
-                <address class="card__source">Лента.ру</address>
-              </article>
-            </section>
-<!-- CARD END -->
-          </section>
+          <section class="news__cards"></section>
           <button class="text text_family_roboto text_weight_medium text_theme_black text_type_large button button__text button_type_show-more">Показать еще</button>
         </section>
 <!-- NEWS END -->
       </div>
     </div>
+<!-- SNACKBAR -->
+    <div class="snackbar snackbar_theme_dark">
+      <p class="snackbar__message snackbar__message_theme_light"></p>
+    </div>
+<!-- SNACKBAR END -->
   </main>
 <!-- FOOTER -->
   <footer class="footer">

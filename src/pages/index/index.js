@@ -6,7 +6,7 @@ import BaseEventsHandler from '../../scripts/components/BaseEventsHandler';
 import SigninForm from '../../scripts/components/SigninForm';
 import SignupForm from '../../scripts/components/SignupForm';
 import Popup from '../../scripts/components/Popup';
-import Searcher from '../../scripts/components/Searcher/Searcher';
+import Searcher from '../../scripts/components/Searcher';
 import MainApi from '../../scripts/api/MainApi';
 
 import {
@@ -46,7 +46,7 @@ async function newsLoader() {
     }
 
     if (!getAuthState()) {
-      setNewsList(articles, []);
+      setNewsList('index', articles, []);
       setNewsListSectionState('newsListSuccess');
 
       return;
@@ -54,7 +54,7 @@ async function newsLoader() {
 
     const { articles: savedArticles } = await MainApi.getArticles();
 
-    setNewsList(articles, savedArticles);
+    setNewsList('index', articles, savedArticles);
 
     setNewsListSectionState('newsListSuccess');
   } catch (error) {

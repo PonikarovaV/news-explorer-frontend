@@ -101,17 +101,35 @@ export const getDate = (time) => {
 };
 
 /**
+ * Адаптирет объект для обеих страниц
+ * @param {object} - карточка статьи
+ * @returns {object} - новый объект карточки статьи
+ */
+export const articleObjectAdapter = (article) => ({
+  keyword: article.keyword || null,
+  title: article.title,
+  description: article.description || article.text,
+  publishedAt: article.publishedAt || article.date,
+  source: article.source.name || article.source,
+  urlToImage: article.urlToImage
+    || article.image
+    || 'https://images.unsplash.com/photo-1555861496-0666c8981751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+  url: article.url || article.link,
+});
+
+/**
  * Отрисовка карточек с новостями.
  * @param {Array} - массив карточек
  * @returns {void} - ничего не возвращает
  */
-export const setNewsList = (articles, savedArticles) => {
+export const setNewsList = (pageKey, articles, savedArticles) => {
   const cardList = articles.map((article) => new NewsCard({
+    pageKey,
     rootSection: {
       tag: 'section',
       class: 'card',
     },
-    article,
+    article: articleObjectAdapter(article),
     getAuthState,
     getDate,
     showSnackbarWithError,

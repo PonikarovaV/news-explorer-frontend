@@ -5,3 +5,7 @@
   font-size: 14px;
   line-height: 1.2;
 }
+
+.snackbar__message_theme_light {
+  color: #fff;
+}

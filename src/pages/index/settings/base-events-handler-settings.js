@@ -1,5 +1,7 @@
 import { MainApi } from '../../../scripts/api';
-import { showSnackbarWithError, setNewsList, setNewsListSectionState } from '../../../scripts/utils/helpers';
+import {
+  showSnackbarWithError, setNewsList, setNewsListSectionState, getAuthState,
+} from '../../../scripts/utils/helpers';
 
 export const getButtonsEventList = (settings) => (
   [
@@ -111,9 +113,17 @@ export const getButtonsEventList = (settings) => (
             throw new Error('Ошибка поиска.');
           }
 
+          if (!getAuthState()) {
+            setNewsList('index', articles, []);
+
+            setNewsListSectionState('newsListSuccess');
+
+            return;
+          }
+
           const { articles: savedArticles } = await MainApi.getArticles();
 
-          setNewsList(articles, savedArticles);
+          setNewsList('index', articles, savedArticles);
 
           setNewsListSectionState('newsListSuccess');
         } catch (error) {

@@ -41,8 +41,19 @@
   top: 24px;
 }
 
-.card__button_active:hover .checked-icon__path {
+.card__button_active:hover .trash-icon__path {
   stroke: #1A1B22;
+  fill: #1A1B22;
+}
+
+.card__button_active:active .trash-icon__path {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+
+.card__button_active:hover .checked-icon__path {
+  fill: #2F71E5;
+  stroke: #2F71E5;
 }
 
 .card__button_active:active .checked-icon__path {

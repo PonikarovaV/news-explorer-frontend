@@ -1,8 +1,4 @@
 export default class HeaderNavigation {
-  _authState = false;
-
-  _user = JSON.parse(localStorage.getItem('user'));
-
   constructor(options) {
     this._rootSection = document.querySelector(`.${options.rootSectionClass}`);
     this._navigationItemList = options.navigationItemList;
@@ -43,7 +39,7 @@ export default class HeaderNavigation {
   _getButton() {
     return this._getAuthState()
       ? `<li class="${this._logoutButton.itemClassList.join(' ')}">
-          <button id="${this._logoutButton.buttonId}" class="${this._logoutButton.buttonClassList.join(' ')}">${this._user.name ?? ''}&nbsp;${this._logoutButton.buttonInnerContent}</button>
+          <button id="${this._logoutButton.buttonId}" class="${this._logoutButton.buttonClassList.join(' ')}">${JSON.parse(localStorage.getItem('user')).name || ''}&nbsp;${this._logoutButton.buttonInnerContent}</button>
         </li>`
       : `<li class="${this._loginButton.itemClassList.join(' ')}">
           <button id="${this._loginButton.buttonId}" class="${this._loginButton.buttonClassList.join(' ')}">${this._loginButton.buttonInnerContent}</button>
