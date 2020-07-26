@@ -1,6 +1,7 @@
 @import '../../vendor/fonts.css';
 @import '../../blocks/circle-preloader/circle-preloader.css';
 @import '../../blocks/title/title.css';
+@import '../../blocks/snackbar/snackbar.css';
 @import '../../blocks/page/page.css';
 @import '../../blocks/header/header.css';
 @import '../../blocks/head-section/head-section.css';

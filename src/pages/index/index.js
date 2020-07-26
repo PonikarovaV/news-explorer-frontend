@@ -3,10 +3,11 @@ import '@babel/polyfill';
 
 import HeaderNavigation from '../../scripts/components/HeaderNavigation';
 import BaseEventsHandler from '../../scripts/components/BaseEventsHandler';
-import Button from '../../scripts/components/Button';
-import Form from '../../scripts/components/Form';
+import SigninForm from '../../scripts/components/SigninForm';
+import SignupForm from '../../scripts/components/SignupForm';
 import Popup from '../../scripts/components/Popup';
-import Observer from '../../scripts/components/Observer';
+import Searcher from '../../scripts/components/Searcher/Searcher';
+import MainApi from '../../scripts/api/MainApi';
 
 import {
   headerScreenNavigationOptions,
@@ -23,29 +24,60 @@ import {
   signupFormOptions,
 } from './settings/form-settings';
 
+import { getButtonsEventList } from './settings/base-events-handler-settings';
+
 import {
-  getButtonsEventList,
-  getButtonsLazyEventList,
-} from './settings/base-events-handler-settings';
-import MainApi from '../../scripts/api';
+  setNewsListSectionState, setNewsList, showSnackbarWithError, getAuthState,
+} from '../../scripts/utils/helpers';
+
 
 const popup = document.querySelector('.popup');
 const mobileMenu = document.querySelector('.mobile-menu');
+const successMessagePopup = popup.querySelector('.success-message');
+
+async function newsLoader() {
+  try {
+    const articles = JSON.parse(localStorage.getItem('articles'));
+
+    if (!articles || !articles.length) {
+      setNewsListSectionState('newsListReject');
+
+      return;
+    }
+
+    if (!getAuthState()) {
+      setNewsList(articles, []);
+      setNewsListSectionState('newsListSuccess');
+
+      return;
+    }
+
+    const { articles: savedArticles } = await MainApi.getArticles();
+
+    setNewsList(articles, savedArticles);
+
+    setNewsListSectionState('newsListSuccess');
+  } catch (error) {
+    showSnackbarWithError(error);
+  }
+}
 
 const popupInstance = new Popup(popup);
 
 const headerScreenNavigation = new HeaderNavigation(headerScreenNavigationOptions);
 const headerMobileNavigation = new HeaderNavigation(headerMobileNavigationOptions);
 
-const signinFormInstance = new Form(signinForm, headerScreenNavigation, signinFormOptions);
-const signupFormInstance = new Form(signupForm, headerScreenNavigation, signupFormOptions);
-
-const buttonsLazyEventList = getButtonsLazyEventList({
-  popupInstance,
-  signinFormInstance,
-  signupFormInstance,
+const signinFormInstance = new SigninForm(signinFormOptions, {
   headerScreenNavigation,
   headerMobileNavigation,
+  newsLoader,
+});
+const signupFormInstance = new SignupForm(signupFormOptions, successMessagePopup);
+
+const searcher = new Searcher({
+  searchField: '.search__input',
+  notFoundSection: '#not-found',
+  notFoundMessageSection: '.request-info__message',
 });
 
 const buttonsEventList = getButtonsEventList({
@@ -55,54 +87,23 @@ const buttonsEventList = getButtonsEventList({
   signupFormInstance,
   popupInstance,
   mobileMenu,
+  searcher,
+  newsLoader,
+  successMessagePopup,
+  headerScreenNavigation,
+  headerMobileNavigation,
 });
 
-const baseButtonsEventsHandler = new BaseEventsHandler(buttonsEventList, Button);
+const baseButtonsEventsHandler = new BaseEventsHandler(buttonsEventList);
 
-const headerScreenNavigationObserver = new Observer({
-  rootSectionIdentifier: '.navigation_place_header',
-  domElementsIdentifiers: [
-    '#button-logout-screen',
-    '#button-login-screen',
-  ],
-  config: {
-    childList: true,
-    subtree: true,
-  },
-  eventList: buttonsLazyEventList,
-  dependency: BaseEventsHandler,
-  transferDependency: Button,
-});
+(function pageLoader() {
+  baseButtonsEventsHandler.setHandlers();
 
-const headerMobileNavigationObserver = new Observer({
-  rootSectionIdentifier: '.navigation_place_mobile-menu',
-  domElementsIdentifiers: [
-    '#button-logout-mobile',
-    '#button-login-mobile',
-  ],
-  config: {
-    childList: true,
-    subtree: true,
-  },
-  eventList: buttonsLazyEventList,
-  dependency: BaseEventsHandler,
-  transferDependency: Button,
-});
+  newsLoader();
 
-headerScreenNavigationObserver.setObserver();
-headerMobileNavigationObserver.setObserver();
+  headerScreenNavigation.render();
+  headerMobileNavigation.render();
 
-signinFormInstance.render();
-signupFormInstance.render();
-
-headerScreenNavigation.render();
-headerMobileNavigation.render();
-
-baseButtonsEventsHandler.setHandlers();
-
-async function foo() {
-  const user = await MainApi.getUserMe();
-  console.log(user);
-}
-
-foo();
+  signinFormInstance.render();
+  signupFormInstance.render();
+}());

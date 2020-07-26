@@ -1,10 +1,48 @@
+import { MainApi } from '../../../scripts/api';
+import { showSnackbarWithError, setNewsList, setNewsListSectionState } from '../../../scripts/utils/helpers';
+
 export const getButtonsEventList = (settings) => (
   [
+    {
+      identifier: '.navigation_place_header',
+      action: 'click',
+      effect: (event) => {
+        if (event.target.closest('#button-logout-screen')) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          settings.headerScreenNavigation.render();
+          settings.newsLoader();
+        }
+
+        if (event.target.closest('#button-login-screen')) {
+          settings.popupInstance.show();
+          settings.signinFormInstance.show();
+        }
+      },
+    },
+    {
+      identifier: '.navigation_place_mobile-menu',
+      action: 'click',
+      effect: (event) => {
+        if (event.target.closest('#button-logout-mobile')) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          settings.headerMobileNavigation.render();
+          settings.newsLoader();
+        }
+
+        if (event.target.closest('#button-login-mobile')) {
+          settings.popupInstance.show();
+          settings.signinFormInstance.show();
+        }
+      },
+    },
     {
       rootSection: settings.signinForm,
       identifier: '.form__redirect-link',
       action: 'click',
-      effect: () => {
+      effect: (event) => {
+        event.preventDefault();
         settings.signinFormInstance.hide();
         settings.signupFormInstance.show();
       },
@@ -13,9 +51,19 @@ export const getButtonsEventList = (settings) => (
       rootSection: settings.signupForm,
       identifier: '.form__redirect-link',
       action: 'click',
-      effect: () => {
+      effect: (event) => {
+        event.preventDefault();
         settings.signupFormInstance.hide();
         settings.signinFormInstance.show();
+      },
+    },
+    {
+      identifier: '.success-message',
+      action: 'click',
+      effect: (event) => {
+        event.preventDefault();
+        settings.signinFormInstance.show();
+        settings.successMessagePopup.classList.remove('success-message_visible');
       },
     },
     {
@@ -50,48 +98,82 @@ export const getButtonsEventList = (settings) => (
     },
     {
       identifier: '.search__button',
-      target: null,
       action: 'click',
-      effect: () => {
-        console.log('search__button');
+      effect: async () => {
+        try {
+          setNewsListSectionState('startSearch');
+
+          await settings.searcher.sendRequest();
+
+          const articles = JSON.parse(localStorage.getItem('articles'));
+
+          if (!articles) {
+            throw new Error('Ошибка поиска.');
+          }
+
+          const { articles: savedArticles } = await MainApi.getArticles();
+
+          setNewsList(articles, savedArticles);
+
+          setNewsListSectionState('newsListSuccess');
+        } catch (error) {
+          setNewsListSectionState('notFound');
+          showSnackbarWithError(error);
+        } finally {
+          setNewsListSectionState('endSearch');
+        }
+      },
+    },
+    {
+      identifier: '.news__cards',
+      action: 'click',
+      effect: async (event) => {
+        if (event.target.closest('.card__button')) {
+          try {
+            const button = event.target.closest('.card__button');
+
+            const card = event.target.closest('.card__image');
+
+            if (button.classList.contains('card__button_saved')) {
+              const { article } = await MainApi.deleteArticle(card.id);
+
+              if (!article) {
+                throw new Error('Не удалось удалить карточку из избранных.');
+              }
+
+              settings.newsLoader();
+
+              return;
+            }
+
+            const cardLink = card.getAttribute('data-link');
+
+            const articles = JSON.parse(localStorage.getItem('articles'));
+
+            const foundData = articles.find((article) => article.urlToImage === cardLink);
+
+            const { data } = await MainApi.saveAtricle({
+              keyword: foundData.keyword,
+              title: foundData.title,
+              text: foundData.description,
+              date: foundData.publishedAt,
+              source: foundData.source.name,
+              link: foundData.url,
+              image: foundData.urlToImage,
+            });
+
+            if (!data) {
+              throw new Error('К сожалению статью не удалось сохранить. Попробуйте позже.');
+            }
+
+            settings.newsLoader();
+          } catch (error) {
+            showSnackbarWithError(error);
+          }
+        }
       },
     },
   ]
 );
 
-export const getButtonsLazyEventList = (settings) => (
-  [
-    {
-      identifier: '#button-logout-screen',
-      action: 'click',
-      effect: () => {
-        localStorage.removeItem('token');
-        settings.headerScreenNavigation.render();
-      },
-    },
-    {
-      identifier: '#button-logout-mobile',
-      action: 'click',
-      effect: () => {
-        localStorage.removeItem('token');
-        settings.headerMobileNavigation.render();
-      },
-    },
-    {
-      identifier: '#button-login-screen',
-      action: 'click',
-      effect: () => {
-        settings.popupInstance.show();
-        settings.signinFormInstance.show();
-      },
-    },
-    {
-      identifier: '#button-login-mobile',
-      action: 'click',
-      effect: () => {
-        settings.popupInstance.show();
-        settings.signinFormInstance.show();
-      },
-    },
-  ]
-);
+export default getButtonsEventList;

@@ -1,0 +1,7 @@
+.snackbar__message {
+  margin: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: red;
+  font-size: 14px;
+  line-height: 1.2;
+}

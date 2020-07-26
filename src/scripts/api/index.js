@@ -1,3 +1,4 @@
 import MainApi from './MainApi';
+import NewsApi from './NewsApi';
 
-export default MainApi;
+export { MainApi, NewsApi };

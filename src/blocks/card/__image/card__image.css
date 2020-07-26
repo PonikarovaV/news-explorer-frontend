@@ -4,8 +4,8 @@
   width: 100%;
   padding-bottom: 68%;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: top 0 left 0 right 0;
+  background-size: 100% 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }

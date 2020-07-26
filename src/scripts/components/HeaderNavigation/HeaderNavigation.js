@@ -1,36 +1,35 @@
 export default class HeaderNavigation {
   _authState = false;
 
+  _user = JSON.parse(localStorage.getItem('user'));
+
   constructor(options) {
-    this.rootSection = document.querySelector(`.${options.rootSectionClass}`);
-    this.rootSectionClassList = options.rootSectionClassList;
-    this.navigationItemList = options.navigationItemList;
-    this.loginButton = options.loginButton;
-    this.logoutButton = options.logoutButton;
-    this.getAuthState = options.getAuthState;
-    this.cleanRootSection = options.cleanRootSection;
-    this.observerConfig = options.observerConfig;
-    this.observer = options.observer;
+    this._rootSection = document.querySelector(`.${options.rootSectionClass}`);
+    this._navigationItemList = options.navigationItemList;
+    this._loginButton = options.loginButton;
+    this._logoutButton = options.logoutButton;
+    this._getAuthState = options.getAuthState;
+    this._cleanRootSection = options.cleanRootSection;
   }
 
   render() {
-    this.cleanRootSection(this.rootSection);
-    this.setMarkup();
+    this._cleanRootSection(this._rootSection);
+    this._setMarkup();
   }
 
-  setMarkup() {
-    const template = `${this.getItems()} ${this.getButton()}`;
+  _setMarkup() {
+    const template = `${this._getItems()} ${this._getButton()}`;
 
-    this.rootSection.insertAdjacentHTML(
+    this._rootSection.insertAdjacentHTML(
       'beforeend',
       template,
     );
   }
 
-  getItems() {
-    return this.navigationItemList.map((item) => (
+  _getItems() {
+    return this._navigationItemList.map((item) => (
       item.needAuthorization
-        ? this.getAuthState() && (
+        ? this._getAuthState() && (
           `<li class="${item.itemClassList.join(' ')}">
             <a class="${item.linkClassList.join(' ')}" href="${item.href}">${item.linkText}</a>
           </li>`
@@ -41,13 +40,13 @@ export default class HeaderNavigation {
     )).join(' ');
   }
 
-  getButton() {
-    return this.getAuthState()
-      ? `<li class="${this.logoutButton.itemClassList.join(' ')}">
-          <button id="${this.logoutButton.buttonId}" class="${this.logoutButton.buttonClassList.join(' ')}">${this.logoutButton.buttonInnerContent}</button>
+  _getButton() {
+    return this._getAuthState()
+      ? `<li class="${this._logoutButton.itemClassList.join(' ')}">
+          <button id="${this._logoutButton.buttonId}" class="${this._logoutButton.buttonClassList.join(' ')}">${this._user.name ?? ''}&nbsp;${this._logoutButton.buttonInnerContent}</button>
         </li>`
-      : `<li class="${this.loginButton.itemClassList.join(' ')}">
-          <button id="${this.loginButton.buttonId}" class="${this.loginButton.buttonClassList.join(' ')}">${this.loginButton.buttonInnerContent}</button>
+      : `<li class="${this._loginButton.itemClassList.join(' ')}">
+          <button id="${this._loginButton.buttonId}" class="${this._loginButton.buttonClassList.join(' ')}">${this._loginButton.buttonInnerContent}</button>
         </li>`;
   }
 }
