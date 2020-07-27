@@ -38,8 +38,6 @@ async function newsLoader() {
 
     const filteredArticles = articles.filter((article) => article.owner === user._id);
 
-    console.log(articles, user, filteredArticles);
-
     if (!filteredArticles) {
       setNewsListSectionState('newsListReject');
 
