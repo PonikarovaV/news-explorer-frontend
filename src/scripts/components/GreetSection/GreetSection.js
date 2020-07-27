@@ -25,7 +25,7 @@ export default class GreetSection {
   }
 
   _setTitle() {
-    return `${this._user.name}, у Вас ${this._articles.length} сохраненных статей`;
+    return `${this._user.name}, у Вас ${this._articles.length || 'нет'} сохраненных статей`;
   }
 
   _getKeywords() {
@@ -42,8 +42,16 @@ export default class GreetSection {
   _setSubtitleTitle() {
     const keywords = this._getKeywords();
 
-    const shortString = keywords.reduce((prev, word, index) => {
-      if (index === keywords.length - 1) {
+    if (!keywords.length) {
+      return '';
+    }
+
+    const shortString = keywords.reduce((prev, word, index, array) => {
+      if (array.length === 1) {
+        return `<b>${word}</b>`;
+      }
+
+      if (index === array.length - 1) {
         return `${prev} и <b>${word}</b>`;
       }
 

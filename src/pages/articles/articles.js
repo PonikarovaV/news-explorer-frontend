@@ -38,12 +38,6 @@ async function newsLoader() {
 
     const filteredArticles = articles.filter((article) => article.owner === user._id);
 
-    if (!filteredArticles) {
-      setNewsListSectionState('newsListReject');
-
-      return;
-    }
-
     const greetSection = new GreetSection({
       rootSection: '.header__info-block',
       titleField: '.info-block__title',
