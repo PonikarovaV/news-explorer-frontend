@@ -34,17 +34,29 @@ async function newsLoader() {
   try {
     const { articles } = await MainApi.getArticles();
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    const filteredArticles = articles.filter((article) => article.owner === user._id);
+
+    console.log(articles, user, filteredArticles);
+
+    if (!filteredArticles) {
+      setNewsListSectionState('newsListReject');
+
+      return;
+    }
+
     const greetSection = new GreetSection({
       rootSection: '.header__info-block',
       titleField: '.info-block__title',
       subtitleField: '.info-block__subtitle',
-      articles,
+      articles: filteredArticles,
       cleanRootSection,
     });
 
     greetSection.render();
 
-    setNewsList('articles', articles, articles);
+    setNewsList('articles', filteredArticles, filteredArticles);
 
     setNewsListSectionState('newsListSuccess');
   } catch (error) {

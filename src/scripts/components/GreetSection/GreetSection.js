@@ -42,8 +42,16 @@ export default class GreetSection {
   _setSubtitleTitle() {
     const keywords = this._getKeywords();
 
+    const shortString = keywords.reduce((prev, word, index) => {
+      if (index === keywords.length - 1) {
+        return `${prev} и <b>${word}</b>`;
+      }
+
+      return `${prev}${prev && word ? ',' : ''} <strong>${word}</strong>`;
+    }, '');
+
     return keywords.length < 4
-      ? `По ключевым словам: <strong>${keywords[0]}</strong>, <strong>${keywords[1]}</strong> и <b>${keywords[2]}</b>`
+      ? `По ключевым словам: ${shortString}`
       : `По ключевым словам: <strong>${keywords[0]}</strong>, <strong>${keywords[1]}</strong> и <b>${keywords.length - 2}</b> другим`;
   }
 }
