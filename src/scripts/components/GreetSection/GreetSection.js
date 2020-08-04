@@ -7,6 +7,7 @@ export default class GreetSection {
     this._subtitleField = this._rootSection.querySelector(`${options.subtitleField}`);
     this._articles = options.articles;
     this._cleanRootSection = options.cleanRootSection;
+    this._wordDeclination = options.wordDeclination;
   }
 
   render() {
@@ -25,7 +26,17 @@ export default class GreetSection {
   }
 
   _setTitle() {
-    return `${this._user.name}, у Вас ${this._articles.length || 'нет'} сохраненных статей`;
+    const articlesCount = this._articles.length || 'нет';
+
+    const saveWordDeclination = this._articles.length
+      ? this._wordDeclination(this._articles.length, [' сохраненная', ' сохраненные', ' сохраненных'])
+      : 'сохраненных';
+
+    const articleWordDeclination = this._articles.length
+      ? this._wordDeclination(this._articles.length, ['статья', 'статьи', 'статей'])
+      : 'статей';
+
+    return `${this._user.name}, у Вас ${articlesCount} ${saveWordDeclination} ${articleWordDeclination}`;
   }
 
   _getKeywords() {
@@ -46,16 +57,16 @@ export default class GreetSection {
       return '';
     }
 
-    const shortString = keywords.reduce((prev, word, index, array) => {
+    const shortString = keywords.reduce((prevWord, curWord, index, array) => {
       if (array.length === 1) {
-        return `<b>${word}</b>`;
+        return `<b>${curWord}</b>`;
       }
 
       if (index === array.length - 1) {
-        return `${prev} и <b>${word}</b>`;
+        return `${prevWord} и <b>${curWord}</b>`;
       }
 
-      return `${prev}${prev && word ? ',' : ''} <strong>${word}</strong>`;
+      return `${prevWord}${prevWord && curWord ? ',' : ''} <strong>${curWord}</strong>`;
     }, '');
 
     return keywords.length < 4

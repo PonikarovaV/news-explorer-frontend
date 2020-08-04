@@ -14,7 +14,7 @@ import {
 import { getButtonsEventList } from './settings/base-events-handler-settings';
 
 import {
-  setNewsListSectionState, setNewsList, showSnackbarWithError, getAuthState, cleanRootSection,
+  setNewsListSectionState, setNewsList, showSnackbarWithError, getAuthState, cleanRootSection, wordDeclination,
 } from '../../scripts/utils/helpers';
 
 (function isAuth() {
@@ -44,6 +44,7 @@ async function newsLoader() {
       subtitleField: '.info-block__subtitle',
       articles: filteredArticles,
       cleanRootSection,
+      wordDeclination,
     });
 
     greetSection.render();

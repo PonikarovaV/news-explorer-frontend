@@ -145,3 +145,19 @@ export const setNewsList = (pageKey, articles, savedArticles) => {
 
   newsCardList.render();
 };
+
+
+/**
+ * Отрисовка карточек с новостями.
+ * @param {number} - количество статей
+ * @param {Array} - вариации слова в зависимости от количества
+ * @returns {string} - возвращает склоненное слово
+ */
+export const wordDeclination = (count, wordValiables) => {
+  const cases = [2, 0, 1, 1, 1, 2];
+
+  return wordValiables[(count % 100 > 4 && count % 100 < 20)
+    ? 2
+    : cases[(count % 10 < 5) ? count % 10 : 5]
+  ];
+};
