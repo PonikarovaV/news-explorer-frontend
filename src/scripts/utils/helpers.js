@@ -148,7 +148,7 @@ export const setNewsList = (pageKey, articles, savedArticles) => {
 
 
 /**
- * Отрисовка карточек с новостями.
+ * Склонение слов.
  * @param {number} - количество статей
  * @param {Array} - вариации слова в зависимости от количества
  * @returns {string} - возвращает склоненное слово
