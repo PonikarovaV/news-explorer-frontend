@@ -1,56 +1,3 @@
-.checked-icon {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.checked-icon_active .checked-icon__path {
-  stroke: #2F71E5;
-  fill: #2F71E5;
-}
-
-.checked-icon:hover {
-  cursor: pointer;
-}
-
-.checked-icon:hover + .tooltip {
-  opacity: 1;
-  top: 24px;
-}
-
-.checked-icon:hover .checked-icon__path {
-  stroke: #1A1B22;
-}
-
-.checked-icon:active .checked-icon__path {
-  fill: #2F71E5;
-  stroke: #2F71E5;
-}
-
-.trash-icon {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.trash-icon:hover {
-  cursor: pointer;
-}
-
-.trash-icon:hover + .tooltip {
-  opacity: 1;
-  top: 24px;
-}
-
-.trash-icon:hover .trash-icon__path {
-  cursor: pointer;
-  fill: #1A1B22;
-}
-
-.trash-icon:active .trash-icon__path {
-  fill: #2F71E5;
-}
-
 .label {
   position: absolute;
   top: 24px;
@@ -99,15 +46,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {
-  .checked-icon {
-    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-    right: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-  }
-
-  .trash-icon {
-    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-    right: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-  }
 
   .label {
     top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
@@ -118,39 +56,13 @@
     top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
     right: calc((100vw - 768px)/(1439 - 768) * (69 - 53) + 53px);
   }
-
-  .trash-icon:hover + .tooltip {
-    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-  }
-
-  .checked-icon:hover + .tooltip {
-    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
-  }
 }
 
 @media (max-width: 767px) {
-  .checked-icon {
-    top: 8px;
-    right: 8px;
-  }
-
   .tooltip {
     top: 8px;
     right: 53px;
   }
-  .trash-icon:hover + .tooltip {
-    top: 8px;
-  }
-
-  .checked-icon:hover + .tooltip {
-    top: 8px;
-  }
-
-  .trash-icon {
-    top: 8px;
-    right: 8px;
-  }
-
   .label {
     top: 8px;
     left: 8px;

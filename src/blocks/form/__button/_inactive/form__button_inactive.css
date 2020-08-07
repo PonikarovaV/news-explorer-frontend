@@ -2,3 +2,7 @@
   background-color: #E6E8EB;
   color: #B6BCBF;
 }
+
+.form__button_inactive:hover {
+  cursor: no-drop;
+}

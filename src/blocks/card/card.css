@@ -6,6 +6,7 @@
 @import './__text/card__text.css';
 @import './__source/card__source.css';
 @import './__bottom/card__bottom.css';
+@import './__link/card__link.css';
 
 .card {
   display: flex;
@@ -13,4 +14,76 @@
   align-items: center;
   border-radius: 10px;
   background-color: #FFF;
+}
+
+.card__button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  border: none;
+  background-color: unset;
+}
+
+.card__button_active:hover {
+  cursor: pointer;
+}
+
+.card__button:hover + .tooltip {
+  opacity: 1;
+  top: 24px;
+}
+
+.card__button_active:hover .trash-icon__path {
+  stroke: #1A1B22;
+  fill: #1A1B22;
+}
+
+.card__button_active:active .trash-icon__path {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+
+.card__button_active:hover .checked-icon__path {
+  fill: #2F71E5;
+  stroke: #2F71E5;
+}
+
+.card__button_active:active .checked-icon__path {
+  fill: #2F71E5;
+  stroke: #2F71E5;
+}
+
+.card__button_saved .checked-icon__path {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .card__button {
+    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
+    right: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
+  }
+
+  .card__button_active:hover + .tooltip {
+    top: calc((100vw - 768px)/(1439 - 768) * (24 - 8) + 8px);
+  }
+}
+
+@media (max-width: 767px) {
+  .card__button {
+    top: 8px;
+    right: 8px;
+  }
+
+  .card__button_active:hover + .tooltip {
+    top: 8px;
+  }
 }

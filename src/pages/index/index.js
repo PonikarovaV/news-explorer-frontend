@@ -1,59 +1,109 @@
 import './index.css';
+import '@babel/polyfill';
 
-// код просто для удобства проверки верстки
-const openMenuIcon = document.querySelector('.header__menu-icon');
+import HeaderNavigation from '../../scripts/components/HeaderNavigation';
+import BaseEventsHandler from '../../scripts/components/BaseEventsHandler';
+import SigninForm from '../../scripts/components/SigninForm';
+import SignupForm from '../../scripts/components/SignupForm';
+import Popup from '../../scripts/components/Popup';
+import Searcher from '../../scripts/components/Searcher';
+import MainApi from '../../scripts/api/MainApi';
+
+import {
+  headerScreenNavigationOptions,
+  headerMobileNavigationOptions,
+} from './settings/header-navigation-settings';
+
+import {
+  signinForm,
+  signupForm,
+} from './settings/form-validation-settings';
+
+import {
+  signinFormOptions,
+  signupFormOptions,
+} from './settings/form-settings';
+
+import { getButtonsEventList } from './settings/base-events-handler-settings';
+
+import {
+  setNewsListSectionState, setNewsList, showSnackbarWithError, getAuthState,
+} from '../../scripts/utils/helpers';
+
+
+const popup = document.querySelector('.popup');
 const mobileMenu = document.querySelector('.mobile-menu');
-const closeMobileMenuIcon = mobileMenu.querySelector('.close-icon_type_mobile');
-const loginButton = document.querySelector('#button-login-screen');
-const popupSignin = document.querySelector('#popup-signin');
-const popupSignup = document.querySelector('#popup-signup');
-const closeSigninButton = popupSignin.querySelector('.close-icon_type_screen');
-const closeSignupButton = popupSignup.querySelector('.close-icon_type_screen');
-const closeMobileSigninIcon = popupSignin.querySelector('.close-icon_type_mobile');
-const closeMobileSignupIcon = popupSignup.querySelector('.close-icon_type_mobile');
-const redirectSignupLink = popupSignin.querySelector('.form__redirect-link');
-const redirectSigninLink = popupSignup.querySelector('.form__redirect-link');
-const closePopupScreenButton = popupSignin.querySelector('.close-icon_type_screen');
+const successMessagePopup = popup.querySelector('.success-message');
 
-openMenuIcon.addEventListener('click', () => {
-  mobileMenu.classList.remove('mobile-menu_invisible');
+async function newsLoader() {
+  try {
+    const articles = JSON.parse(localStorage.getItem('articles'));
+
+    if (!articles || !articles.length) {
+      setNewsListSectionState('newsListReject');
+
+      return;
+    }
+
+    if (!getAuthState()) {
+      setNewsList('index', articles, []);
+      setNewsListSectionState('newsListSuccess');
+
+      return;
+    }
+
+    const { articles: savedArticles } = await MainApi.getArticles();
+
+    setNewsList('index', articles, savedArticles);
+
+    setNewsListSectionState('newsListSuccess');
+  } catch (error) {
+    showSnackbarWithError(error);
+  }
+}
+
+const popupInstance = new Popup(popup);
+
+const headerScreenNavigation = new HeaderNavigation(headerScreenNavigationOptions);
+const headerMobileNavigation = new HeaderNavigation(headerMobileNavigationOptions);
+
+const signinFormInstance = new SigninForm(signinFormOptions, {
+  headerScreenNavigation,
+  headerMobileNavigation,
+  newsLoader,
+});
+const signupFormInstance = new SignupForm(signupFormOptions, successMessagePopup);
+
+const searcher = new Searcher({
+  searchField: '.search__input',
+  notFoundSection: '#not-found',
+  notFoundMessageSection: '.request-info__message',
 });
 
-closeMobileMenuIcon.addEventListener('click', () => {
-  mobileMenu.classList.add('mobile-menu_invisible');
+const buttonsEventList = getButtonsEventList({
+  signinForm,
+  signupForm,
+  signinFormInstance,
+  signupFormInstance,
+  popupInstance,
+  mobileMenu,
+  searcher,
+  newsLoader,
+  successMessagePopup,
+  headerScreenNavigation,
+  headerMobileNavigation,
 });
 
-loginButton.addEventListener('click', () => {
-  mobileMenu.classList.add('mobile-menu_invisible');
-  popupSignin.classList.remove('popup_invisible');
-});
+const baseButtonsEventsHandler = new BaseEventsHandler(buttonsEventList);
 
-closeSigninButton.addEventListener('click', () => {
-  popupSignin.classList.add('popup_invisible');
-});
+(function pageLoader() {
+  baseButtonsEventsHandler.setHandlers();
 
-closeSignupButton.addEventListener('click', () => {
-  popupSignup.classList.add('popup_invisible');
-});
+  newsLoader();
 
-closeMobileSigninIcon.addEventListener('click', () => {
-  popupSignin.classList.add('popup_invisible');
-});
+  headerScreenNavigation.render();
+  headerMobileNavigation.render();
 
-closeMobileSignupIcon.addEventListener('click', () => {
-  popupSignup.classList.add('popup_invisible');
-});
-
-closePopupScreenButton.addEventListener('click', () => {
-  popupSignin.classList.add('popup_invisible');
-});
-
-redirectSignupLink.addEventListener('click', () => {
-  popupSignin.classList.add('popup_invisible');
-  popupSignup.classList.remove('popup_invisible');
-});
-
-redirectSigninLink.addEventListener('click', () => {
-  popupSignin.classList.remove('popup_invisible');
-  popupSignup.classList.add('popup_invisible');
-});
+  signinFormInstance.render();
+  signupFormInstance.render();
+}());
